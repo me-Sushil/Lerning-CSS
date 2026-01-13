@@ -1,0 +1,144 @@
+Text Formatting Properties
+In this lesson, you'll learn the following text formatting properties:
+
+text-decoration
+text-align
+text-transform
+line-height
+letter-spacing
+word-spacing
+Let's start with text decoration.
+
+////////////////////////////////////////////////////////////////////
+
+
+1. Text Decoration
+The four commonly used values for text-decoration are:
+
+underline
+Underlined Text
+
+overline
+Overlined Text
+
+line-through
+Text With Line-Through
+
+none
+Text With No Decoration
+
+Let's see an example for each value.
+
+<p>This paragraph is underlined.</p>
+<div>This div is overlined.</div>
+<p>Sale price: <span>$360</span> $120.</p>
+
+
+p {
+    text-decoration: underline;
+}
+
+div {
+    text-decoration: overline;
+}
+span {
+    text-decoration: line-through;
+}
+
+
+////////////////////////////////////////////////////////////////////
+
+Removing the underline from link
+ 
+Text Decoration: None
+The none value removes text decoration.
+
+Browsers underline links by default. Run the code below to view this.
+
+index.html
+<p>To learn more, visit <a href="https://programiz.pro">programiz pro</a></p>
+Let's remove this underline using text-decoration: none;.
+
+index.html
+style.css
+/* Remove underline formatting from the link */
+a {
+    text-decoration: none;
+}
+
+
+
+2. text-alignment
+
+Text Alignment
+The text-align property aligns text horizontally in an element. The four commonly used values for text-align are:
+
+Text Alignment	Description
+left	Aligns text to the left. It's the default value.
+right	Aligns text to the right.
+center	Aligns the text to the center.
+justify	Aligns text to the left and right, spreading it evenly across the line. Stretches the text to touch both sides.Straight edges on both sides.
+Let's understand this with the help of examples.
+
+
+
+ext Align: Left, Right, and Center
+index.html
+<h1>Text Align</h1>
+<div>This is aligned to the left.</div>
+<p>This is aligned to the right.</p>
+
+
+style.css
+h1 {
+    text-align: center;
+}
+
+div {
+    text-align: left;
+}
+
+p {
+    text-align: right;
+}
+
+
+
+
+Text Align: Justify
+Notice the right edge of your content when the text is not justified:
+
+Without any text alignment, text within a container is usually aligned to the left 
+by default, which can create uneven spaces at the end of each line.
+ This can make longer paragraphs look uneven and less polished, especially when 
+ they fill the width of the container. For instance, if you use `text-align: left`, the 
+ text will be left-aligned with a ragged right edge.
+
+
+Text align: Justify
+You can apply text-align: justify; to align the right edge of the text:
+
+Without any  text  alignment,  text within a  container  is usually  aligned  to the left
+by default,  which  can create  uneven  spaces  at the end  of each  line. This  can make 
+longer  paragraphs  look uneven  and less  polished,  especially when they fill the width
+of the container. For instance, if you use text-align: left, the text will be left-aligned
+with a ragged right edge.
+
+Text align: Justify
+Let's add the code to justify the text:
+
+index.html
+
+<p>Without any text alignment, text within a container is usually aligned to the left 
+by default, which can create uneven spaces at the end of each line.
+ This can make longer paragraphs look uneven and less polished, especially when 
+ they fill the width of the container. For instance, if you use `text-align: left`, the 
+ text will be left-aligned with a ragged right edge.</p> 
+
+style.css
+p {
+    text-align: justify;
+}
+While text-align: justify makes the text look cleaner, it can also make it harder to read.
+
+Consider avoiding it when styling long blocks of text for better readability.
