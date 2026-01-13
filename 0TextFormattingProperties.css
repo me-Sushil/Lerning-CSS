@@ -142,3 +142,178 @@ p {
 While text-align: justify makes the text look cleaner, it can also make it harder to read.
 
 Consider avoiding it when styling long blocks of text for better readability.
+
+
+
+3. text-transform (Text Transformations
+)
+
+
+The text-transform property is used to change the case of the text:
+
+Text Transform	   Description
+uppercase	      Converts all text to uppercase letters.
+lowercase	      Converts all text to lowercase letters.
+capitalize        Capitalizes the first letter of each word.
+
+
+Example: Text Transform
+Without text transformation, the case of the letters is displayed as they are.
+
+index.html
+<h1>CSS is fun!</h1>
+<h2>CSS is fun!</h2>
+<h3>CSS is fun!</h3>
+Let's use the text-transform property to change how the text appears.
+
+style.css
+h1 {
+    text-transform: uppercase;
+}
+
+h2 {
+    text-transform: lowercase;
+}
+
+h3 {
+    text-transform: capitalize;
+}
+Browser Output
+
+uppercase = CSS IS FUN!
+lowercase = css is fun!
+capitalize = CSS Is Fun!
+
+
+
+Transform Text to Uppercase
+Can you style the webpage as follows?
+
+Set the font sizes of <h3>, <h2>, and <h1> to 18px, 20px, and 24px, respectively.
+Set the color of <h1> to #e74c3c.
+Set the font size of all paragraphs to 20px.
+Center-align all text and convert all headings to uppercase.
+
+
+index.HTML
+
+<h1>Nutritious Apples</h1>
+<p>Apples are nutritious fruits, rich in fiber and vitamins.</p>
+
+<h2>Colorful Apples</h2>
+<p>Apples come in various colors, including red, green, and yellow.</p>
+
+<h3>Versatile Apples</h3>
+<p>Apples are versatile, enjoyed raw, baked, or in beverages like cider.</p>
+
+style.css
+h1, h2, h3, p {
+    text-align: center;
+    
+}
+
+h1 {
+    font-size: 24px;
+    color: #e74c3c; /* Red */
+}
+
+h2, p {
+    font-size: 20px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+h1, h2, h3{
+    text-transform: uppercase;
+}
+
+
+
+4. line-height 
+
+
+
+Line Height
+The line-height property controls the vertical spacing between lines of text. For example,
+
+index.html
+<p>CSS is fun! It allows you to create visually stunning web pages by manipulating styles and 
+layouts. With CSS, you can transform simple HTML into engaging designs, making your content 
+stand out. Dive into CSS and see how it brings your ideas to life!</p>
+<hr>
+<div>CSS is fun! It allows you to create visually stunning web pages by manipulating styles 
+and layouts. With CSS, you can transform simple HTML into engaging designs, making your content 
+stand out. Dive into CSS and see how it brings your ideas to life!</div>
+
+
+style.css
+p {
+    line-height: 50px;
+}
+
+div {
+    line-height: 10px;
+}
+Browser Output
+
+Line Height
+As you can see, the element before the horizontal line is a paragraph with a line height of 50px,
+ creating large gaps between the lines.
+
+The element after the horizontal line is a <div> with a 0 line height, leaving no gaps between
+ the lines and causing all text to appear on a single line.
+
+
+
+
+ Relative Line Height
+It's common practice to use a relative unit for line-height instead of specifying the exact value.
+
+For example, using a font size of 20px with a line height of 1.5 would result in a total line height of 30px (20px x 1.5).
+
+This approach scales better with different font sizes and ensures consistency across devices.
+
+index.html
+
+<h1>CSS Line Height</h1>
+<p>CSS is fun! It allows you to create visually stunning web pages by manipulating styles and
+ layouts. With CSS, you can transform simple HTML into engaging designs, making your content 
+ stand out. Dive into CSS and see how it brings your ideas to life!</p>
+
+ style.css
+
+ h1 {
+    font-size: 30px;
+    line-height: 1.2;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+
+
+
+
+5. Letter Spacing and Word Spacing
+The letter-spacing property adjusts the space between characters.
+
+Similarly, the word-spacing property adjusts the space between words.
+
+index.html
+<p>This text has large spaces between the letters and even larger spaces between the words.</p>
+
+style.css
+p {
+    letter-spacing: 1px;
+    word-spacing: 10px;
+}
+
+outout :
+This   text   has   large   spaces   between   the   letters   and   even   larger   spaces
+between   the   words.
+
+These two properties are rarely used but can be helpful in certain situations.

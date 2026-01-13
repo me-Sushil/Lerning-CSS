@@ -1,0 +1,424 @@
+Introduction
+In this chapter, you will learn about the box model—an essential concept for sizing, spacing, 
+and positioning elements on a webpage.
+
+First, let's understand the box model. Then, you'll learn about its components.
+
+
+1. Box Model Basic
+
+Every Element is a Box
+Every HTML element on a webpage is treated as a rectangular box. You can easily observe this
+ by adding a background to the elements in your code.
+
+index.html
+style.css
+div {
+    background: #cccccc;
+}
+
+h3 {
+    background: #32a881;
+}
+
+span {
+    background: #7e82a6;
+}
+
+As you can see, every HTML element (like <div>, <h3>, and <span>) forms a rectangular box.
+
+By controlling the size and space within and between these boxes, you can build a complex layout. 
+The box model helps you do exactly that.
+
+
+
+Parts of a Box
+The box model consists of four main components:
+
+Content
+Border
+Padding
+Margin
+Let's start by looking at the content component of the box.
+
+
+
+Example 1: Box Model
+Consider a simple element:
+
+Box Model Example
+Figure: BoxModel.png
+The card you see above is a box.
+
+The text and images inside it are its content. Content are the elements that you interact 
+with directly.
+
+Border, padding, and margin are the components outside content. You'll learn about them 
+individually in the upcoming lessons.
+
+Let's look at another example.
+
+
+
+
+> ## Border
+The border is the boundary line that surrounds the content of an element.
+
+You can style it using the border property:
+
+index.html
+style.css
+a {
+    background-color: #6603fc;
+    color: #ffffff;
+    text-decoration: none;
+
+    /* Border styling */
+    border: 4px solid #ff0000;
+}
+
+Simple Border
+Now, our button has a 4px thick, solid border of the color #ff0000 on all four sides.
+
+Note: You can also individually style each side of a border using the border-top, border-right,
+border-bottom, and border-left properties.
+Let's learn how to change the width, style, and color of a border.
+
+
+
+
+
+Border Width
+The border property syntax is:
+
+border: width style color;
+The first value here specifies the thickness of the border.
+
+Example
+
+index.html
+<h1>Sneakers on Sale</h1>
+<p>Step up your game with these trendy, ultra-comfortable sneakers designed for both performance and style. Perfect for casual wear or a workout!</p>
+<a href="#">Buy Now</a>
+
+style.css
+a {
+    background-color: #6603fc;
+    color: #ffffff;
+    text-decoration: none;
+
+    /* Border styling */
+    border: 2px solid #ff0000;
+}
+
+Now, the button has a border of 2px width.
+
+
+
+
+
+Border Style
+The second value in border property syntax specifies the style of the border.
+
+It can have the following possible values:
+
+Border Style	Description
+solid	A single solid line.
+dashed	A series of dashes.
+dotted	A series of dots.
+none	No border.
+Example
+
+index.html
+style.css
+a {
+    background-color: #6603fc;
+    color: #ffffff;
+    text-decoration: none;
+
+    /* Border styling */
+    border: 4px dashed #ff0000;
+}
+
+
+Now, the button has a dashed border.
+
+
+
+Border Color
+The third value in the border property specifies the border color.
+
+You can use the color name, hex code, or rgb value to define the border color.
+
+For example:
+
+index.html
+style.css
+a {
+    background-color: #6603fc;
+    color: #ffffff;
+    text-decoration: none;
+
+    /* Border styling */
+    border: 4px solid rgb(255, 0, 0);
+}
+
+
+Now, the button has a red colored border.
+
+
+
+
+
+Border Radius
+You can also use the border-radius property to create rounded corners on elements.
+
+Example
+
+index.html
+style.css
+a {
+    background-color: #6603fc;
+    color: #ffffff;
+    text-decoration: none;
+    border: 4px solid #ff0000;
+
+    border-radius: 50px;
+}
+
+
+Border Radius
+The button now has rounded corners.
+
+You can also create shapes like a perfect circle using this property. Let's explore this next.
+
+
+
+Problem 
+Border Width and Radius
+Can you style the given webpage as follows?
+
+Set width and height of <div> to 200px.
+Make the border solid, 10px wide and green in color.
+Fully round the corners to create a circle.
+
+
+solution 
+div {
+    width:200px;
+    height:200px;
+    border: 10px solid green;
+    border-radius:50%;
+}
+
+
+
+
+
+
+
+> ## Padding
+
+
+Padding is the space between the content of an element and its border.
+
+Let's use the padding property to pad 'Buy Now' button on all four sides:
+
+index.html
+style.css
+a {
+    background-color: #6603fc;
+    color: #ffffff;
+    text-decoration: none;
+    
+    /* Applies a padding of 10px */
+    padding: 10px;
+}
+
+Padding
+Here, padding of 10px is added on all sides between the content and border of the <a> element.
+
+
+Problem 
+Adding Padding and Background Color
+Can you style the given webpage as follows?
+
+Set the padding of all sides to 20px.
+Set the background color to #8e44ad.
+
+solution
+div {
+    background-color:#8e44ad;
+    padding:20px;
+}
+
+
+
+Providing Two Values
+Providing one value to padding sets equal padding on all sides.
+
+Providing two values sets different values for vertical and horizontal padding:
+
+index.html
+style.css
+a {
+    background-color: #6603fc;
+    color: #ffffff;
+    text-decoration: none;
+    
+    /* Applies 10px vertical and 30px horizontal padding  */
+    padding: 10px 30px;
+}
+
+
+Padding Using Two Values
+Here, padding of 10px is applied to the top and bottom and padding of 30px is applied to the sides.
+
+
+Note: The syntax for providing two padding values is padding: vertical horizontal;.
+
+
+
+Providing Three Values
+Three values for padding apply to top, horizontal (left and right), and bottom:
+
+index.html
+style.css
+a {
+    background-color: #6603fc;
+    color: #ffffff;
+    text-decoration: none;
+    
+    /* Applies 10px padding on top, 
+    30px on the sides and 
+    20px on the bottom  */
+    padding: 10px 30px 20px;
+}
+
+
+
+Providing Four Values
+Four values for padding apply to top, right, bottom, and left in clockwise order:
+
+index.html
+style.css
+a {
+    background-color: #6603fc;
+    color: #ffffff;
+    text-decoration: none;
+    
+    /* Applies 10px on top, 
+    30px on right, 
+    40px on bottom, and 
+    50px on left */
+    padding: 10px 30px 40px 50px;
+}
+
+
+Padding Using Four Values
+
+Note: You can also provide the individual values
+ using padding-top, padding-bottom, padding-right, and padding-left properties.
+
+
+
+> ## Margin
+
+
+While padding adds space inside the border, margin adds space outside the border, separating 
+one element from another.
+
+Idea Emoji
+Note: Margins don't change an element's actual size—they only create space between elements.
+ This makes margins ideal for spacing without altering layout dimensions.
+Horizontal margins, like padding, work on all elements. However, vertical margins (top and bottom)
+ only apply to block elements. To add a vertical margin to an inline element, like a link, you'll 
+ need to change its display type to block.
+
+For example:
+
+index.html
+style.css
+a {
+    background-color: #6603fc;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px;
+    
+    /* Makes it a block element with width 70px */
+    display: block;
+    width: 70px;
+
+    /* Applies 30px margin on all sides */
+    margin: 30px;
+}
+
+
+Margin
+Note: Just like with padding, you can control the margin on individual sides using margin-top,
+ margin-bottom, margin-left, and margin-right properties.
+
+
+
+
+ inline-block
+We've seen that inline elements (like text links) can't have vertical margins, and block elements
+ can.
+
+But what if you want something in between? For example, consider you're building a navigation menu.
+ You want the links on the menu on the same line, but also separated by a margin.
+
+That's where the inline-block comes in.
+
+With inline-block, you get the best of both:
+
+Inline behavior: Elements stay on the same line.
+Block behavior: You can control the element's width and height, and yes—add vertical margins.
+Let's explore this with an example:
+
+index.html
+style.css
+nav li {
+    background-color: pink;
+    
+    display: inline-block;
+
+    /* Accepts block behavior while remaining inline */
+    width: 150px;
+    height: 50px;
+    margin: 10px; 
+}
+With this covered, let's get back to margins.
+
+Think of inline-block as a hybrid or a "best of both worlds" setting. To understand it easily, 
+let's look at the two things it’s combining:
+
+1. The "Inline" Part (The Social Side)
+Inline elements are like words in a sentence. They are happy to sit right next to each other on the
+same line.
+The problem: 
+You can't tell a word in a sentence to be "50px tall" or have a "20px gap above it." 
+It just ignores you because it's focused on staying in line.
+
+2. The "Block" Part (The Bossy Side)
+Block elements are like bricks. They are heavy and always start on a new line, pushing everything 
+else away.
+The problem: 
+You can't put two bricks side-by-side easily because they always want their own dedicated row. 
+But, they do listen when you tell them how wide or tall to be.
+
+3. The "Inline-Block" (The Hybrid)
+When you use display: inline-block, you create an element that is polite enough to stay on the 
+same line (like a word), but strong enough to have a width, height, and margins (like a brick).
+
+Why use it for a Navigation Menu?
+Imagine you have 5 menu links (Home, About, Contact, etc.).
+- If they are Block: They will stack on top of each other like a list. (Not what you want for a top bar).
+- If they are Inline: They will stay side-by-side, but they will look squashed because you can't 
+add height or top/bottom spacing to make them look like clickable buttons.
+- If they are Inline-Block: They stay side-by-side AND you can make them look like big, spaced-out buttons.
+
+Feature                    Inline       Block        Inline-Block 
+Stays on one line?          Yes          No           Yes 
+Respects Width/Height?       No          Yes          Yes
+Respects Vertical Margins?   No          Yes          Yes

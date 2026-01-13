@@ -1,0 +1,717 @@
+Introduction
+In this lesson, you will learn to use an image as a background.
+
+Let's begin.
+
+
+
+Background Image
+You use the background-image property to add a background image to HTML elements.
+
+For this example, we have an image named bg.png in our system, located within the folder 
+structure: images > learn-css. You can access it at /images/learn-css/bg.png.
+
+
+Let's learn how to use it as a background.
+
+
+
+
+
+Applying Background Image
+Here's how you can use the bg.png image as the background:
+
+index.html
+<div>
+    <h1>Welcome to Programiz!</h1>
+    <p>Dive into CSS and start turning boring web pages into something that actually looks good.</p>
+
+    <h2>Why Learn with Us?</h2>
+    <ul>
+        <li>Code in your browser.</li>
+        <li>Create real-world projects.</li>
+        <li>Get certified for in-demand skills.</li>
+    </ul>
+
+    <p>
+        At Programiz, we are committed to providing a unique learning experience that empowers you to master CSS and web development. Our interactive platform allows you to code directly in your browser, making it easy to learn without the need for complex setups. You'll gain hands-on experience by working on real-world projects, allowing you to apply what you learn in practical scenarios.
+    </p>
+</div>
+
+style.css
+div {
+
+    /* The image path is enclosed inside url() */
+    background-image: url('/images/learn-css/bg.png');
+}
+
+
+Note: In this example, the background image is applied to a <div> container that wraps 
+the content, not the <body>. This is a better approach as it gives you better control 
+over your design.
+Now, the image appears as the background, but it's repeated.
+
+This happens when the background image is smaller than the container's width or height.
+ Let's fix it next.
+
+
+
+
+Background Repeat
+You can use the background-repeat property to control how a background image is repeated, whether horizontally, vertically, or not at all.
+
+Value	         Description
+repeat	         The image repeats both horizontally and vertically. This is the default value.
+repeat-x	     The image repeats horizontally (left to right).
+repeat-y	     The image repeats vertically (top to bottom).
+no-repeat      	The image does not repeat.
+
+We'll use no-repeat value to prevent our background from repeating.
+
+
+
+Background No Repeat
+index.html
+style.css
+div {
+    background-image: url('/images/learn-css/bg.png');
+
+   /* Don't repeat the background image. */
+   background-repeat: no-repeat;
+}
+
+Now, the background doesn't repeat.
+
+However, since the image size is smaller than the targeted element, the design doesn't look good.
+
+In such a scenario, you need to stretch the background to ensure it covers the entire screen.
+
+There is an easy way to fix this issue using the background-size property.
+
+
+
+
+
+Background Size
+You can specify the width and height of the background image using background-size. For example,
+
+index.html
+style.css
+div {
+    background-image: url('/images/learn-css/bg.png');
+    background-repeat: no-repeat;
+
+    /* 
+    Width is 600px. 
+    Height is 300px.
+     */
+    background-size: 600px 300px;
+}
+Specifying width and height allows you to set exact dimensions for the background image.
+
+However, if the image's width-to-height ratio doesn't match the specified size, the image 
+will be distorted.
+
+A better way to accomplish this task is by setting the background-size property to cover.
+
+
+
+
+
+Background Size: Cover
+The cover value scales the image to fill the container, leaving no empty space.
+
+index.html
+style.css
+div {
+    background-image: url('/images/learn-css/bg.png');
+    background-repeat: no-repeat;
+
+    /* Stretches the image to fit the container. */ 
+    background-size: cover;
+}
+
+
+Background Size: Cover
+
+Now, the background image completely fills the container.
+
+That's why using the background-repeat property is no longer necessary.
+
+After removing it, our code becomes:
+
+index.html
+style.css
+div {
+    background-image: url('/images/learn-css/bg.png');
+
+    background-size: cover;
+}
+
+
+
+
+Background Position
+You can control the starting position of a background image using the background-position property.
+
+Let's explore a few examples.
+
+
+
+Example: background-position
+1. Positioning the background image to the right edge of the container and centering it vertically.
+
+index.html
+style.css
+div {
+    background-image: url('/images/learn-css/bg1.png');
+    background-repeat: no-repeat; 
+
+    /* Sets the background image to align to the right and vertically center.  */
+    background-position: right center;
+}
+2. Positioning the background image to the left edge of the container and aligning it to the bottom.
+
+index.html
+style.css
+div {
+    background-image: url('/images/learn-css/bg1.png');
+    background-repeat: no-repeat; 
+
+    /* Sets the background image to align to the left and vertically bottom.  */
+    background-position: left bottom;
+}
+3. Positioning the background image to the center both horizontally and vertically.
+
+index.html
+style.css
+div {
+    background-image: url('/images/learn-css/bg.png');
+
+    background-repeat: no-repeat; 
+   /* Sets the background image to align horizontally and vertically center.  */
+    background-position: center;
+}
+
+
+
+
+
+
+
+
+
+Use Case of Background Repetition
+We often use background-repeat: no-repeat; to prevent repetition, but in some cases, 
+repeating backgrounds can be useful.
+
+For example, repeating a small image, like a geometric pattern or texture, can help you create
+ a continuous background without needing a large image file.
+
+index.html
+style.css
+div {
+    background-image: url('/images/learn-css/bg3.png');
+
+    background-repeat: no-repeat; 
+}
+Remove the background-repeat: no-repeat; in the above CSS.
+
+You'll notice how the repeated image adds a geometric pattern to the background.
+
+Idea Emoji
+Takeaway: Deciding to use or discard background repetition in your layout depends on your 
+design goal. Use it to create patterns and texture or disable it for a focused, single-image look.
+
+
+
+
+
+
+Background Shorthand
+Instead of background-color or background-image, it is common to use the shorthand background.
+
+In the example below, the code specifies a background image with a fallback background color on two separate lines:
+
+index.html
+style.css
+div {
+    background-image: url('/images/learn-css/bg1.png');
+    background-color: #eeeeee;
+    background-size: cover;
+}
+You can instead combine them using the shorthand property background:
+
+index.html
+style.css
+body {
+
+    /* background image followed by background color */
+
+    background: url('/images/learn-css/bg1.png') #eeeeee;
+    background-size: cover;
+}
+
+
+
+
+QUESTION
+
+Background Image
+Can you style the given webpage as follows?
+
+Add a background image to the <div> element using the provided image path /images/learn-css/bg.png.
+Make the image repeat horizontally.
+
+
+
+div {
+    background-image: url('/images/learn-css/bg.png');
+    background-repeat: repeat-x;
+}
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////
+
+
+Introduction
+In HTML, every element has a display property. This property controls how it appears on the webpage.
+
+For example,
+
+index.html
+<p>This is a paragraph.</p>
+<span>This is a span.</span>
+
+style.css
+p, span {
+    background: black;
+    color: white;
+}
+
+Block and Inline Elements
+In the above code, we've applied the same style to both the <p> and <span> elements.
+
+However, the background color of the paragraph covers the entire screen width, while the background 
+color of the span covers only the text width.
+
+This difference occurs because a paragraph is a block-level element, which takes up the full width 
+by default, while a span is an inline element that only spans the width of its content.
+
+Let's dive deeper into how block and inline elements behave differently.
+
+
+
+
+
+
+Width and Height of Elements
+
+Let's build on the previous example to see how block and inline elements handle width and height.
+
+index.html
+<p>This is a paragraph.</p>
+<span>This is a span</span>
+
+style.css
+p, span {
+    background: black;
+    color: white;
+
+    /* Add width and height properties */
+    width: 300px;
+    height: 100px;
+}
+
+Width and Height of Elements
+As you can see, the block-level element (<p>) takes the defined width and height. 
+However, the width and height of the inline element (<span>) remain unchanged.
+
+Block elements can be sized using width and height, while inline elements cannot without 
+special handling.
+
+
+
+
+Common Block and Inline Elements
+Commonly used block-level elements: <p>, <div>, <ul>, <ol>, <h1>, <h2>, and <div>.
+
+Commonly used inline elements: <span>, <strong>, <img>, and <a>.
+
+You don't need to remember whether every element is block-level or inline. 
+Just keep in mind that if certain elements don't behave as expected, it 
+might be due to their display property.
+
+
+
+
+
+
+
+
+Changing the display Property
+You can use the display property to change an element to block or inline.
+
+The default display value for the <li> tag is list-item, which controls how an element 
+appears in a list. We will cover the display property in more depth in an upcoming chapter.
+
+Note: A list-item is essentially a block element that includes list markers (bullets or numbers). 
+This means it behaves like a block element but also displays a marker to indicate its position 
+within a list.
+index.html
+<ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Contact</a></li>
+</ul>
+In this example, each list item contains a link.
+
+Run the code to see the output.
+
+Now, let's change the display property of <li> to inline, and adjust the styles for <a> to 
+create a navigation menu:
+
+
+style.css
+li {
+    display: inline;
+    background: black;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+
+Changing the Display Property
+From this simple example, you can see how useful the display property is for styling elements.
+
+Note: You learned about two values: inline and block. The display property has other values, 
+and when combined with different styles, it opens up more design options.
+You'll learn more about display as we dive into the box model in the next chapter.
+
+
+
+
+
+Problem 
+Display
+Can you style the given webpage as follows?
+
+Convert <span> to a block-level element and set its background color to #ffd700.
+Set the background color of the paragraph to #f0e68c.
+
+
+Solution
+index.HTML
+<p>This is a paragraph with a <span>span inside it</span>.</p>
+
+style.css
+p {
+    background-color:#f0e68c;
+}
+span {
+    display:block;
+    background-color:#ffd700;
+    
+}
+
+
+
+Problem 
+
+Styling Button
+Can you style the given webpage as follows?
+
+Convert <a> to a block-level element and give it a width of 150px and height of 50px.
+Set the background color of <a> to #0556f3 and text color to #ffffff (white).
+Remove the default underline from the link to create a clean button-like appearance.
+Center the text inside the link horizontally and vertically.
+Hint: You can vertically center the text of <a> by settings its line-height equal to its height.
+Your goal is to make this link visually stand out as a button.
+
+Solution
+
+index.HTML
+
+<a href = "#">Click Me</a>
+
+style.css
+
+a {
+    display: block;
+
+    width: 150px;
+    height: 50px;
+
+    text-align: center;
+    line-height: 50px;
+
+    background-color: #0556f3;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+
+
+
+
+
+Problem 
+
+Wanted Poster
+Earlier in the chapter, you saw the following design for a 'Wanted' poster:
+
+Poster Project
+Figure: Poster Project
+You're now ready to recreate this design using your CSS skills. Here's the HTML code to get started:
+
+index.html
+/* Complete HTML Code */
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <!-- Load the font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Covers all the visible elements -->
+        <div>
+            <h1>wanted</h1>
+            <img src="/images/learn-css/jack-sparrow.png">
+            <h2>jack sparrow</h2>
+            <p>the notorious pirate</p>
+            <h3>reward</h3>
+            <h4><span>$5000</span>$20000</h4>
+        </div>
+    </body>
+
+</html>
+Images and Fonts Used
+
+You can use the following path for images:
+
+Image	Path (for CSS)	URL
+Background Image	/images/learn-css/paper-background.png	https://app.programiz.pro/images/learn-css/paper-background.png
+Criminal Portrait (Jack Sparrow)	/images/learn-css/jack-sparrow.png	https://app.programiz.pro/images/learn-css/jack-sparrow.png
+The font used in the poster is Old Standard TT . You can use this font by using the following code in the <head> section of your HTML file:
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+It's fine if you don't get the spacing between elements exactly right. It can be difficult to guess just by looking at the image.
+
+Solution 
+i tryied may not 100% right for right answer scroll down.....
+body {
+    font-family: 'Old Standard TT', serif;
+    /* Move the background to a container if you want a 'poster' look, 
+       but for now, let's keep it on the body as you had it. */
+    background-image: url("https://app.programiz.pro/images/learn-css/paper-background.png");
+    background-size: cover;
+}
+
+/* 1. Centering the Image */
+img {
+    display: block;      
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;        
+}
+
+h1,
+h2,
+p,
+h3,
+h4 {
+    text-align: center;
+}
+
+h1,
+p {
+    text-transform: uppercase;
+}
+
+p {
+    text-decoration: underline;
+}
+
+h2,
+h3 {
+    text-transform: capitalize;
+}
+
+h3 {
+    background-color: #b51d1d;
+    color: #ffffff;
+    /* Optional: Makes the red reward bar look better */
+    margin: 20px auto; 
+    padding: 5px;
+}
+
+span {
+    text-decoration: line-through;
+    color: #5c5a5a;
+}
+
+
+
+
+
+
+Adding Background and Width
+First, let's style the main container (<div>) that wraps all the elements.
+
+index.html
+style.css
+div {
+    font-family: "Old Standard TT", serif;
+    text-align: center;
+    width: 550px;
+    background: url('/images/learn-css/paper-background.png');
+}
+We have added these properties to the <div> element:
+
+1. font-family
+
+The font-family property adds the Old Standard TT font to all the text in the poster and sets 
+Serif as the fallback font.
+
+By using font-family on <div>, you don't need to apply it to individual elements, as the <div>
+ element wraps all the content within it.
+
+2. text-align
+
+In the poster, all the text is aligned to the center. Therefore, we have applied text-align:
+ center; to ensure all the text aligns accordingly.
+
+3. width
+
+The poster's width is set to 550 pixels.
+
+4. background
+
+By default, the background image repeats, which fits our needs in this case. Right now, the 
+image is larger than the <div>, but if we use a smaller image or a larger <div>, the repeating
+ will be useful.
+
+
+
+
+
+ SOLUTION FROM COURSE 100 % right
+ Add CSS to Child Elements
+Once the <div> container is styled, the rest of the code is straightforward.
+
+Review the code below. We've included comments within the code to make it more intuitive and easy to understand, avoiding lengthy explanations.
+
+index.html
+style.css
+/* Complete CSS Code */
+div {
+    font-family: "Old Standard TT", serif;
+    text-align: center;
+    width: 550px;
+    background: url('/images/learn-css/paper-background.png');
+}
+
+h1 {
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 90px;
+
+    /* The text is in lowercase in the HTML file,
+    changing it to uppercase. */
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 60px;
+
+    /* Applying underline 
+    and converting to uppercase. */
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 60px;
+
+    /* Applying capitalization to 
+    the first letter of each word. */
+    text-transform: capitalize;
+}
+
+h3 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 60px;
+    background-color: brown;
+    color: #ffffff;
+
+    /* Applying capitalization to 
+    the first letter of each word. */
+    text-transform: capitalize;
+}
+
+h4 {
+    font-size: 30px;
+}
+
+span {
+    /* Applying strike-through for the old price. */
+    text-decoration: line-through;
+    font-size: 28px;
+    color: #292929;
+}
+
+Congratulations! With this, you have made your first project using CSS.
+
+
+
+
+Important
+Awesome work! You've done a fantastic job using CSS to create a simple poster design with 
+backgrounds, fonts, and text styles. You've not only learned about these properties, but 
+you're also building a strong foundation for applying them.
+
+This course is designed with the goal of not only helping you understand CSS properties but
+ also showing you exactly how developers apply them in real projects.
+
+Our team at Programiz has carefully crafted this course for you to:
+
+Help you build practical skills you can apply right away
+Stay ahead with in-demand career skills
+Accelerate your learning without feeling overwhelmed
+Nurture your curiosity and creative exploration
+By the end of this course, we want you to feel confident creating polished designs with
+ skills and industry practices that you can carry right into your career. And you're well 
+ on your way—keep going!
+
+Throughout your journey, remember to:
+
+Use resources like Google or ChatGPT for deeper dives into specific topics
+Experiment with your designs—each attempt will teach you something new
+Embrace the learning process—expertise comes with time and practice
+In the next chapter, you'll dive deeper into display properties and how they interact with
+ the box model.
