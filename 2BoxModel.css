@@ -422,3 +422,738 @@ Feature                    Inline       Block        Inline-Block
 Stays on one line?          Yes          No           Yes 
 Respects Width/Height?       No          Yes          Yes
 Respects Vertical Margins?   No          Yes          Yes
+
+
+
+
+
+
+
+
+
+
+
+Auto Margins
+By setting margin to auto, you can center an element horizontally in CSS.
+
+For example,
+
+index.html
+style.css
+a {
+     padding-top: 10px;
+    display: block;
+    width: 120px;
+    height: 30px;
+    text-align: center;
+    background-color: #2596be;
+    color: #ffffff;
+    text-decoration: none;
+
+   /* Center element horizontally */
+    margin: auto;
+}
+
+
+Auto Margins
+margin: auto; centers an element horizontally within its parent element (here, the <body>).
+
+
+Note: You can achieve the same effect by individually setting margin-left and margin-right to auto.
+
+
+
+
+
+
+
+Vertical Margin Collapse
+In the code below, two <div> elements are arranged vertically. Each has a margin of 50px. 
+What do you think is the gap between them?
+
+Run the code below to check your answer:
+
+index.html
+style.css
+div {
+    background-color: #6603fc;
+    color: white;
+    height: 100px;
+    width: 100px;
+
+    /* Applies 50px margin to both divs */
+    margin: 50px;
+}
+
+Vertical Margin Collapse
+Did you guess 100px? It's actually just 50px.
+
+This is because of a CSS behavior, called vertical margin collapse. When two elements with 
+margins between them are vertically stacked, their margin values are collapsed. Only the larger 
+value among them is applied between—here, 50px.
+
+Note: This only happens with vertical margins (top and bottom). Horizontal margins (left and right)
+do not collapse.
+
+
+
+
+
+
+Control Vertical Spacing
+That's why, when increasing or decreasing the space between vertically placed block-level elements, 
+make sure you only use one margin:
+
+Either the bottom margin of the first element.
+Or the top margin of the second element.
+
+
+
+Box Sizing
+By default, padding and borders are not included in an element's width and height.
+
+This means if you set a width of 300px and add padding or borders, the actual size will be 
+larger than 300px.
+
+
+
+
+Box Sizing
+The box-sizing property lets you control this behavior.
+
+Setting box-sizing: border-box; ensures that padding and borders are included in the 
+element's width and height, keeping the size exactly as you defined.
+
+Example
+
+index.html
+style.css
+div {
+    width: 300px;
+    height: 300px;
+    background-color: #add8e6;
+    border: 50px solid black;
+    padding: 50px;
+
+    /* Specify border-box */
+    box-sizing: border-box;
+}
+
+
+Box Sizing: border-box
+Note: The default value for box-sizing is content-box. Padding and borders are excluded 
+when using this value.
+
+
+
+
+Problem 
+
+Complex Box Model
+Can you style the given webpage as follows?
+
+Set a margin of 20px on all sides.
+Apply a 5px solid #34495e border.
+Add padding of 50px to all sides.
+Set the width to 150px and height to 150px.
+Apply a background color of #9b59b6.
+Make sure the <div> is circular in shape.
+
+
+Solution 
+
+div {
+    background-color:#9b59b6;
+    height:150px;
+    width:150px;
+    border: 5px solid #34495e;
+    border-radius:50%;
+    margin:20px;
+    padding: 50px;
+}
+
+
+
+
+
+Height, Width, and Auto Sizing
+Before we move on to the next topic, let's quickly recap the height and width properties.
+
+These properties let you control how tall and wide an element is on a web page.
+
+Example
+
+index.html
+style.css
+div {
+    width: 300px;
+    height: 300px;
+    background-color: #add8e6;
+}
+The code above creates a box that's 300 pixels wide and 200 pixels tall.
+
+However, setting exact values isn't always practical—for example, content length of 
+user-generated comments on a website is unpredictable.
+
+In such cases, auto value comes in handy.
+
+You can set height: auto; to adjust the height of the comment box automatically. This 
+grows and shrinks the size of the box accordingly to fit the content inside.
+
+Example
+
+index.html
+style.css
+div {
+    width: 300px;
+    height: auto;
+    background-color: #add8e6;
+}
+Try adding more content to <div>. You'll notice its width will remain 300 pixels, but its 
+height will grow naturally to fit the content.
+
+Imagine we hadn't used auto height, what would happen if the content was too big for the box?
+
+
+
+
+
+
+Overflow
+Suppose you've set exact values for height and width of and element, but the content inside
+ exceeds it.
+
+In such a case, the content overflows, making the layout look messy.
+
+Example
+
+index.html
+style.css
+div {
+    /* Specifying small height */
+    height: 140px;
+
+    background-color: #0cd1ba;
+    border: 2px solid black;
+}
+
+
+Overflowing Content
+As you can see, the content overflows the container element.
+
+You can manage cases like this using the overflow property. Let's explore this further.
+
+
+
+
+
+
+
+
+Overflow: Hidden
+overflow: hidden; simply clips the overflowing content from the container.
+
+Example
+
+index.html
+style.css
+div {
+    height: 140px;
+    background-color: #0cd1ba;
+    border: 2px solid #000000;
+
+    /* Hide overflowing content */
+    overflow: hidden;
+}
+
+
+Hidden Scrollbar
+Here, the overflowing content is hidden and can't be accessed.
+
+Now, let's look at another way you can manage overflowing content.
+
+Note: You can also control overflow behavior horizontally or vertically using overflow-x and overflow-y.
+
+
+
+
+
+
+Overflow: Auto
+overflow: auto hides the overflowing content, but it can be accessed by scrolling the container.
+
+Example
+
+index.html
+style.css
+div {
+    height: 140px;
+    background-color: #0cd1ba;
+    border: 2px solid #000000;
+
+    /* Make overflowing content scrollable */
+    overflow: auto;
+}
+
+
+Auto Scrollbar
+
+Note: The auto value generates scrollbars only when the content overflows. If you want the 
+scrollbars regardless of the overflow, use the scroll value.
+
+
+
+
+
+
+
+
+
+
+Introduction
+Great job! You've successfully learned the basics of the CSS box model, including how to 
+control the size, spacing, and layout of HTML elements.
+
+Before you start your project, it's time to learn two essential CSS concepts (class 
+selectors and universal selectors) that will help you organize and style your webpage 
+even more efficiently.
+
+
+
+
+
+
+
+
+
+Class Selectors
+Often, you'll want to apply the same style to multiple elements on your page. Instead of 
+repeating the CSS for each element, you can use a class selector.
+
+A class selector applies the same CSS to all elements having the specified class.
+
+It is specified using a period (.) followed by the class name.
+
+Example
+
+index.html
+<h2>Section First</h2>
+<p class="orange-bg">This is the first paragraph.</p>
+<p>This is the second paragraph.</p>
+
+<h2>Section Second</h2>
+<p class="orange-bg">This is the first paragraph.</p>
+<p>This is the second paragraph.</p>
+
+
+style.css
+.orange-bg {
+    background-color: orange;
+}
+
+
+Class Selectors
+The class selector .orange-bg selects all HTML elements with the orange-bg class name and 
+styles their background-color to orange.
+
+
+
+
+
+Using Class Selectors with Element Tag Names
+You can combine class selectors with element tag names, allowing you to target only 
+specific types of elements with a particular class.
+
+Example
+
+index.html
+<h2 class="highlighted">This heading will not be styled.</h2>
+<p class="highlighted">This paragraph will be styled.</p>
+<div class="highlighted">This div will also not be styled.</div>
+
+style.css
+p.highlighted {
+    color: blue;
+}
+Here, the class selector p.highlighted will only apply the blue color to the <p> elements 
+with the highlighted class.
+
+Other elements like <h2> and <div> that also have the highlighted class will not be affected 
+by this rule.
+
+
+
+
+Multiple Classes on One Element
+An element can have multiple classes.
+
+This is particularly useful for applying different styles to a single element.
+
+Example
+
+index.html
+<p class="highlighted bordered">This paragraph has multiple styles.</p>
+
+style.css
+/* Applies yellow background color */
+.highlighted {
+    background-color: yellow;
+}
+
+/* Applies border */
+.bordered {
+    border: 2px solid black;
+    padding: 10px;
+}
+Here, the paragraph element has both highlighted and bordered classes.
+
+
+
+
+
+
+
+Universal Selector
+The universal selector (*) selects all HTML element on the webpage at once.
+
+Example
+
+index.html
+<h1>Heading</h1>
+<p>First Paragraph</p>
+<p>Second Paragraph</p>
+
+style.css
+/* Selects and styles all HTML elements at once */
+* {
+    color: red;
+}
+
+
+
+
+Resetting Default Styles with the Universal Selector
+Browsers have default styles that can affect your design. To start with a clean slate, use 
+the universal selector to reset these styles.
+
+Here are two basic styling resets you'll use frequently:
+
+1. Resetting Margin and Padding
+
+Browsers add margin and padding on all elements by default. You can remove them by setting 
+margin: 0; and padding: 0;.
+
+2. Box-Sizing Reset
+
+Setting box-sizing: border-box; ensures that the padding and border are included in the 
+width and height of elements, avoiding unexpected spacing issues.
+
+Here's the combined CSS reset:
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+With these two selectors—class selectors and the universal selector—you're now equipped to 
+start working on your project.
+
+Let's dive into the project and put the concepts learned in this chapter into practice!
+
+
+
+
+
+
+
+
+Project Introduction: What You Will Learn
+In this project, you'll build a simple card layout to display course information, similar 
+to the design in the Programiz PRO website.
+
+What You Will Learn
+Figure: Project Introduction: What You Will Learn
+You'll apply the CSS box model, work on some text styling, and use layout techniques you've
+ already learned as you go along.
+
+You'll also discover some new properties that will prepare you to create more complex 
+layouts in the future.
+
+
+
+Step 1: Set Up the Container
+Let's start by setting up the main container to hold all the course information.
+
+First, you'll create an HTML structure using a <div> element as the main container.
+Then, you'll add a section title using an <h2> element to help describe the section.
+Inside the main container, you'll add two <div> elements. Each one will represent an individual
+ course.
+Here's the corresponding HTML:
+
+index.html
+<div class="courses-container">
+    <h2>Courses similar to this</h2>
+
+    <div>
+        <h3>Learn JavaScript Basics</h3>
+        <p>8 Chapters • 149+ Questions</p>
+    </div>
+
+    <div>
+        <h3>Learn JavaScript Intermediate</h3>
+        <p>5 Chapters • 34 Questions</p>
+    </div>
+</div>
+
+
+
+
+Step 2: Reset Browser Styles
+Before adding your own custom styles, it's a good idea to reset the default browser styles. This helps ensure that all elements look the same across different browsers—so you won't have any unexpected issues.
+
+Let's add the following CSS to reset the margins, padding, and box-sizing for all the elements on the page:
+
+index.html
+style.css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+This clears any default spacing so that you can start fresh!
+
+
+
+
+Step 3: Style the Container
+Now that you've set up the structure, let's add some styles to the container to make
+ it more visually appealing:
+
+Add padding to the container so there's some space around the content.
+Choose a background color (#fff5e7) to make the container stand out.
+Pick a font for the text to keep the design consistent and easy to read.
+Here's the CSS you can use to style the container:
+
+index.html
+style.css
+.courses-container {
+    background-color: #fff5e7;
+    padding: 32px; 
+    font-family: "Euclid Circular A", sans-serif;
+}
+
+Note: The lesson only shows the relevant code for each step, but the editor has all 
+the code together so you can see everything you've done so far. This will also be the case for future projects.
+This gives the container a light background and some spacing around the edges.
+
+
+
+
+Step 4: Add and Style the Course Cards
+Now, let's make each of those course sections look like cards.
+
+Next steps:
+
+Add a class to each <div> that represents a course. Let's call it course-card.
+Then, you'll style the cards with padding, margins, and a white background to make them stand out.
+Here's how to update the HTML:
+
+index.html
+style.css
+<div class="courses-container">
+    <h2>Courses similar to this</h2>
+
+    <div class="course-card">
+        <h3>Learn JavaScript Basics</h3>
+        <p>8 Chapters • 149+ Questions</p>
+    </div>
+
+    <div class="course-card">
+        <h3>Learn JavaScript Intermediate</h3>
+        <p>5 Chapters • 34 Questions</p>
+    </div>
+</div>
+And here's the CSS to style the cards:
+
+index.html
+style.css
+.course-card {
+    background-color: #fff;  
+    padding: 32px 16px;    
+    margin: 16px;    
+    border-radius: 8px;    
+    display: inline-block;    
+    text-align: center;   
+    border: 1px solid #ddd;    
+    width: 240px;
+}
+Now, the course cards have a clean look with a white background and rounded corners.
+
+
+
+
+
+
+Step 5: Style the Text
+Let's make the titles of the section and course cards stand out more.
+
+Next steps:
+
+Add a class for the section title (<h2>) called courses-title.
+Style the course titles (<h3>) to add weight and color.
+Update the HTML and add this CSS to style the titles:
+
+index.html
+<div class="courses-container">
+    <h2 class="courses-title">Courses similar to this</h2>
+
+    <div class="course-card">
+        <h3 class="course-title">Learn JavaScript Basics</h3>
+        <p>8 Chapters • 149+ Questions</p>
+    </div>
+
+    <div class="course-card">
+        <h3 class="course-title">Learn JavaScript Intermediate</h3>
+        <p>5 Chapters • 34 Questions</p>
+    </div>
+</div>
+
+style.css
+/* Section title styles */
+.courses-title {
+    color: #25265e;
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+/* Course title styles */
+.course-title {
+    font-size: 18px;
+    color: #25265e;
+    margin-bottom: 12px;
+    text-align: left;
+    font-weight: bold;
+}
+Now, the titles are larger and more eye-catching.
+
+
+
+Step 6: Add and Style Images
+Finally, add images to each course card to make them more visually appealing.
+
+Next steps:
+
+Add an <img> tag to each course card with the src and alt attributes for the image.
+Style the images to make them fit inside the cards.
+Here's the updated HTML and CSS with images:
+
+index.html
+<div class="courses-container">
+    <h2 class="courses-title">Courses similar to this</h2>
+
+    <div class="course-card">
+        <h3 class="course-title">Learn JavaScript Basics</h3>
+        <img src="/images/learn-css/learn-js-basics.png" alt="JavaScript Basics Logo" class="course-image">
+        <p>8 Chapters • 149+ Questions</p>
+    </div>
+
+    <div class="course-card">
+        <h3 class="course-title">Learn JavaScript Intermediate</h3>
+        <img src="/images/learn-css/learn-js-intermediate.png" alt="JavaScript Intermediate Logo" class="course-image">
+        <p>5 Chapters • 34 Questions</p>
+    </div>
+</div>
+
+style.css
+/* Course image styles */
+.course-image {
+    width: 160px;      /* Set image width */
+    height: auto;      /* Maintain aspect ratio */
+    margin-bottom: 16px;
+}
+Now, the course cards include images that make them much more engaging.
+
+
+
+
+
+Final Project: Complete Code
+Here's the complete code for your project:
+
+index.html
+<div class="courses-container">
+    <h2 class="courses-title">Courses similar to this</h2>
+
+    <div class="course-card">
+        <h3 class="course-title">Learn JavaScript Basics</h3>
+        <img src="/images/learn-css/learn-js-basics.png" alt="JavaScript Basics Logo" class="course-image">
+        <p>8 Chapters • 149+ Questions</p>
+    </div>
+
+    <div class="course-card">
+        <h3 class="course-title">Learn JavaScript Intermediate</h3>
+        <img src="/images/learn-css/learn-js-intermediate.png" alt="JavaScript Intermediate Logo" class="course-image">
+        <p>5 Chapters • 34 Questions</p>
+    </div>
+</div>
+
+
+style.css
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.courses-container {
+    background-color: #fff5e7;
+    padding: 32px; 
+    font-family: "Euclid Circular A", sans-serif;
+}
+
+.course-card {
+    background-color: #fff;
+    padding: 32px 16px;
+    margin: 16px;
+    border-radius: 8px;
+    display: inline-block;
+    text-align: center; 
+    border: 1px solid #ddd;
+    width: 240px;
+}
+
+.courses-title {
+    color: #25265e;
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.course-title {
+    font-size: 18px;
+    color: #25265e;
+    margin-bottom: 12px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.course-image {
+    width: 160px;
+    height: auto;
+    margin-bottom: 16px;
+}
+
+
+
+
+Moving Ahead
+Congratulations! 🎉
+
+By finishing this project, you've applied the concepts you learned about the box model,
+basic layout, and text styling. You've also explored new CSS properties like border-radius
+and inline-block.
+
+This hands-on project shows how important it is to keep your HTML clean and organized while 
+also demonstrating how CSS can bring your designs to life.
+
+Now, let's learn about selecting elements and applying CSS.
