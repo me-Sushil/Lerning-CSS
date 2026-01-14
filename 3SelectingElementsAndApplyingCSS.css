@@ -1,0 +1,237 @@
+LINKING CSS WITH HTML
+
+
+Introduction
+
+In this chapter, you'll learn how HTML and CSS work together, including the 
+different ways to write CSS.
+
+You'll also learn different selectors besides the element and class selectors you learned 
+in the previous chapters.
+
+
+
+HTML and CSS are Linked
+You have been using our code editor, which includes two tabs—index.html for HTML and 
+style.css for CSS—until now.
+
+Tabs for Editor
+Figure: Tabs for Editor
+Notice how the two files work together; the CSS code you write automatically styles the
+ HTML elements. That's because our code editor automatically links style.css with index.html.
+
+However, when building real-world projects, you need to manually link CSS with HTML for them to work.
+
+Let's learn how to do that on the next page.
+
+
+
+
+Linking CSS with HTML
+You can link a .css file with a .html file using the <link> tag. Simply put it in the <head> 
+tag of the HTML document as follows:
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+All the styling rules you write in style.css will be applied to the HTML document.
+
+This way of linking a CSS file with HTML is also known as external linking.
+
+Let's see why external linking is so great.
+
+
+
+Linking Multiple CSS Files
+When working on real-world projects, your CSS code can get long. In such cases, you may need to 
+organize your code in multiple files.
+
+That's when external linking comes in handy, as you can link multiple CSS files to an HTML document.
+
+Here's what linking multiple CSS files may look like:
+
+<head>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style3.css">
+</head>
+This way, all the styling rules in style1.css, style2.css, and style3.css will be applied to the 
+HTML document.
+
+Now, let's see the other ways of writing CSS.
+
+
+
+
+
+Internal CSS
+Instead of creating a separate file, you can directly write CSS in the same HTML file using
+ the <style> tag. For example:
+
+index.html
+<head>
+    <style>
+        p {
+            color: orange;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Oranges are a great source of vitamin C!
+    </p>
+</body>
+Run the above code to see how internal CSS works.
+
+
+Note: Internal CSS is primarily useful when trying small code snippets. Using internal 
+CSS in real-world projects can make it challenging to organize the project.
+
+
+
+
+
+
+Inline CSS
+Using inline CSS, you can apply styles directly to individual HTML elements. You use the 
+style attribute to add inline CSS.
+
+For example:
+
+index.html
+<p style="color: orange; font-size: 24px;">Oranges are a great source of vitamin C!</p>
+Here, style="color: orange; font-size: 24px;" directly styles the text by setting its color
+ to orange and font size to 24px.
+
+Although using inline CSS might seem like an easy option since it doesn't require selectors,
+ it's generally considered bad practice.
+
+Inline styles can clutter your HTML, make your code harder to maintain, and reduce reusability.
+
+It's generally better to keep your styles separate using external CSS.
+
+
+
+SELECTORS AND COMBINETORS
+
+
+Introduction
+Now that you've linked your CSS file to your HTML, it's time to learn how to select specific
+HTML elements for styling.
+
+CSS selectors allow you to target and style specific elements in various ways.
+
+So far, you have learned about three selectors:
+
+Element Selectors
+Class Selectors
+Universal Selectors
+Let's do a quick recap.
+
+
+
+
+Revision: Selectors
+Element Selectors
+
+The element selector applies styles to all HTML elements of a given type (e.g., <h1>, <p>).
+
+For example, h1 { color: red; } will style all <h1> elements with red text.
+
+Class Selectors
+
+Class selectors apply styles to elements with a specific class attribute.
+
+For example, .first-paragraph { background-color: orange; } will style all elements with the
+ class first-paragraph.
+
+Universal Selector
+
+The universal selector (*) targets all HTML elements.
+
+For example, * { color: red; } applies the red text color to every element.
+
+It's mostly used to reset default styles, such as setting margin: 0 and padding: 0, to ensure 
+consistency across browsers.
+
+
+
+
+
+
+ID Selectors
+Now, let's learn about our final selector: the ID selector.
+
+Sometimes, you may want to style only a specific, unique part of a webpage, such as a 
+header or footer. To achieve this, you can use the ID selector.
+
+The ID selector targets a single HTML element with a unique identifier (ID) and applies
+ specific styles to it.
+
+In CSS, the ID selector is specified using the hash (#) character, followed by the id 
+of the HTML element.
+
+Let's see an example.
+
+index.html
+<header id="main-header">
+    <h1>Welcome to My Website</h1>
+</header>
+
+<main id = "main-content">
+    <p>Your webpage body goes here.</p>
+</main>
+
+<footer id="main-footer">
+    <p>© 2024 My Website</p>
+</footer>
+
+style.css
+/* Reset browser defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styles for the header */
+#main-header {
+    background-color: #3a506b;
+    color: #f4d35e;
+    padding: 40px;
+    text-align: center;
+    font-family: 'Helvetica', sans-serif;
+    border-bottom: 3px solid #5bc0be;
+}
+
+/* Styles for the main content */
+#main-content {
+    height: 400px;
+    background: #c0c0c0;
+    text-align: center;
+}
+
+/* Styles for the footer */
+#main-footer {
+    background-color: #1c2541;
+    color: #edf2f4;
+    padding: 20px;
+    text-align: right;
+    font-size: 16px;
+    border-top: 2px solid #f4d35e;
+}
+
+
+ID Selectors
+In this example, the ID selector #main-header applies styles only to the unique <header> 
+element with the id="main-header".
+
+Similarly, the #main-footer selector targets the unique <footer> element with the id="main-footer".
+
+Even though you might have multiple sections or paragraphs in the document, only the unique 
+header and footer are affected by these ID-specific styles.
+
+
+Note: Like class selectors, you can also target elements using ID selectors with the element's
+ tag name. For example, instead of just #my-id, you can write div#my-id.
