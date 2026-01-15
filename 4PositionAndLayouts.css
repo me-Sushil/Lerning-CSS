@@ -1,0 +1,119 @@
+Introduction
+In this chapter, you'll learn how to position any HTML element on a webpage using CSS.
+
+The position property is used to precisely control where elements appear on a page, helping 
+you make a pixel-perfect layout.
+
+By default, this property is set to static. To use this property, you'll have to set it to 
+one of the following values:
+
+relative
+absolute
+fixed
+sticky
+Let's learn about these values one by one.
+
+
+
+
+
+Position: Relative
+We use position: relative; to move an element by a certain number of pixels from its original 
+position.
+
+Consider the following bell icon:
+
+Before Positioning
+Let's see how you can move it using relative position:
+
+index.html
+style.css
+.notifications {
+    background: #ddd;
+    height: 100px;
+    width: 100px;
+}
+
+.icon {
+    font-size: 36px;
+
+    /* Enables top/left positioning */
+    position: relative;
+
+    /* Moves the icon 25px away from both 
+    the top and the left of original position */
+    left: 25px;
+    top: 25px;
+}
+
+
+After Position relative
+Using relative positioning, we've shifted the icon to center it within the <div> element.
+
+
+Note: Removing position: relative; from your code will restore the icon to its original 
+position. This means you can use the top, right, bottom, or left properties only after you
+assign a position value to the required element.
+
+
+
+
+
+
+
+
+
+Position: Absolute
+Here's how the badge looks initially:
+
+Example: Absolute
+Figure: Example: Absolute
+Let's position the badge to the top-right corner of .notifications:
+
+index.html
+style.css
+.notifications {
+    background: #ddd;
+    display: inline-block;
+    margin: 50px;
+    padding: 30px;
+    font-size: 36px;
+
+    /* Sets notifications as reference parent */
+    position: relative;
+}
+
+.badge {
+    font-size: 24px;
+    line-height: 16px;
+
+    /* Positions the badge absolute to the reference parent */
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+Browser Output
+
+Example: Absolute
+Figure: Position: Absolute
+This positions the badge to the top right corner of the notifications <div>.
+
+Try tweaking the values of top and right to get it positioned perfectly like this.
+
+Example: Absolute
+Figure: Example: Absolute
+Once you've finished experimenting, continue reading below.
+
+The following values for top and right can help you achieve the placement as seen in the image:
+
+.badge {
+    position: absolute; 
+    top: -10px;
+    right: -15px;
+}
+Paste this code section to position the badge.
+
+
+Note: In CSS, an element with position: absolute looks for a reference parent to determine
+ its position on the page. A reference parent is any element that has position: relative 
+ or position: absolute.
