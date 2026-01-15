@@ -405,3 +405,147 @@ li + li {
     color: #777; 
     font-size: 18px;  
 }
+
+
+
+
+
+
+
+
+SPECIFICITY
+
+
+Introduction
+In CSS, it's possible for multiple rules to apply to the same element.
+
+When multiple CSS rules target the same element, the rule that gets applied is determined 
+by its specificity. More specific rules override less specific ones.
+
+The order of selectors from least to most specific is:
+
+Element selectors
+Class selectors
+ID selectors
+Let's look at a few examples to demonstrate this better.
+
+
+
+
+
+Example 1: Element and Class Selectors
+Element selectors target all instances of a tag type.
+
+Class selectors are more specific, targeting only elements with a particular class. 
+Hence, they override element selectors.
+
+Run the code below to see this in action.
+
+index.html
+style.css
+/* Element selector */
+p {
+    color: red;
+}
+
+/* Class selector */
+.my-class {
+    color: green;
+}
+In this example, the class selector .my-class overrides the element selector p. 
+So, the paragraph text is green.
+
+
+
+
+
+
+
+Example 2: ID Selectors
+ID selectors are even more specific, targeting elements with a specific ID attribute. 
+So, they override both class and element selectors.
+
+index.html
+style.css
+/* Element selector */
+p {
+    color: red;
+}
+
+/* Class selector */
+.my-class {
+    color: green;
+}
+
+/* ID selector */
+#my-id {
+    color: blue;
+}
+In this example, the ID selector #my-id overrides both the class and element selectors, 
+so the paragraph text will be blue.
+
+Idea Emoji
+Note: Specificity is actually quantified using numerical weight values—IDs get the highest 
+weight, followed by classes, and then tags. For now, just remember the order: IDs > Classes > Tags.
+
+
+
+
+
+
+
+Handling CSS Rules with the Same Specificity
+When two CSS rules have the same specificity, which rule do you think gets applied?
+
+Let's explore this with an example:
+
+index.html
+style.css
+/* First Rule */
+p {
+    color: red;
+}
+
+/* Second Rule */
+p {
+    color: blue;
+}
+In this case, both rules target all <p> elements and have the same specificity.
+
+In such cases, the rule that comes last in your CSS file is applied.
+
+
+This is because CSS stands for Cascading Style Sheets. Rules "cascade," meaning they are 
+applied in layers, with the last rule overriding any earlier ones when they have the 
+same specificity.
+
+
+
+
+
+
+Overriding Priority Using !important
+The !important keyword can override all other rules.
+
+index.html
+style.css
+/* Element selector */
+p {
+    color: red !important;
+}
+
+/* Class selector */
+.my-class {
+    color: green;
+}
+
+/* ID selector */
+#my-id {
+    color: blue;
+}
+The paragraph text is displayed in red because the !important keyword overrides other rules.
+
+Understanding specificity is essential for mastering CSS and creating well-styled webpages.
+
+Next, you'll learn about positions and layouts in CSS. But first, take a quiz and a practice 
+challenge!
