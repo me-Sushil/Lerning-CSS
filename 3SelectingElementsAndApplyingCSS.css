@@ -235,3 +235,173 @@ header and footer are affected by these ID-specific styles.
 
 Note: Like class selectors, you can also target elements using ID selectors with the element's
  tag name. For example, instead of just #my-id, you can write div#my-id.
+
+
+
+
+
+
+
+ Descendant and Child Combinators
+You can also use CSS selectors to indicate relationships between HTML tags. For example, 
+suppose you combine two selectors (say, div and p) by separating them with a space like this:
+
+div p {
+    /* CSS styles */
+}
+In CSS, this means you are only selecting those <p> that are descendants of <div> elements.
+
+Similarly, you can also indicate relationships between elements by placing the greater-than 
+symbol > between different selectors.
+
+These two symbols are called the descendant combinator (represented by a space) 
+and the child combinator (represented by >).
+
+
+Note: They are called "combinators" because they combine two or more selectors to define 
+relationships between HTML elements.
+Let's start with the descendant combinator.
+
+
+
+
+
+Descendant Combinator
+The space between two selectors means you are targeting descendants. A descendant is any element 
+inside another, no matter how deeply nested.
+
+Example
+
+index.html
+<div class="main-div">
+    <p>This is a direct child of div.</p>
+    <div>
+        <p>This is nested deeper inside another div.</p>
+    </div>
+</div>
+
+style.css
+.main-div p {
+    color: blue;
+}
+The descendant combinator (space combinator) selects all <p> elements that are inside main-div.
+
+It doesn't matter how deep the <p> is inside the .main-div. It could be directly inside or even
+ inside several other tags nested within it.
+
+
+
+
+
+ Child Combinator
+The > symbol is used to target the direct children of an element. A child element is directly 
+inside the parent, without any other element in between.
+
+Example
+
+index.html
+<div class="main-div">
+    <p>This is a direct child of div.</p>
+    <div>
+        <p>This is nested deeper inside another div.</p>
+    </div>
+</div>
+
+style.css
+.main-div > p {
+    color: blue;
+}
+Greater than selector selects all <p> elements that are direct children of a main-div>.
+
+Here, only <p> elements that are immediately inside main-div will be styled. If a <p> is nested 
+further inside, it won't be affected.
+
+By understanding how these selectors work, you can be more precise when applying styles to your 
+HTML elements.
+
+
+
+
+
+
+
+
+Adjacent Sibling Combinator
+Let's learn about our final combinator.
+
+The + symbol targets an element that immediately follows another element (i.e., adjacent siblings).
+
+An adjacent sibling is an element that appears right after a specific element and shares the
+ same parent.
+
+Example
+
+index.html
+<div class="content-section">
+    <h1>Heading 1</h1>
+    <p>This paragraph will not be styled.</p>
+    
+    <h2>Heading 2</h2>
+    <p>This paragraph is adjacent to Heading 2 and will be styled.</p>
+    
+    <h2>Heading 2</h2>
+    <p>This paragraph is adjacent to Heading 2 and will also be styled.</p>
+</div>
+
+style.css
+h2 + p {
+  color: orange;
+  font-weight: bold;
+}
+
+
+Adjacent Sibling Combinator 
+In this example, the h2 + p rule selects only those <p> elements that directly follow an <h2>.
+
+These adjacent paragraphs will be styled with orange text and bold font, while other <p>
+ elements not immediately after an <h2> remain unaffected.
+
+
+
+
+
+
+PROBLEM 
+
+CSS Combinators
+Can you style the given webpage as follows?
+
+Set the font size for all elements to 24px.
+Style all <p> elements inside .profile-section to have a font size of 16px, line height of 1.5, text color of #333, and a bottom margin of 15px.
+Style the direct <p> child of .profile-section to have a background color of #f0f0f0, 10px padding on all sides, and 4px left border with the color #007bff.
+Style the second and third <li> elements in the list to have a font size of 18px and color of #777.
+
+
+
+SOLUTION
+
+ /* Universal selector - just to set font-size */
+* {
+    font-size: 24px;
+}
+
+/* 1. Descendant Combinator: Targets all <p> inside .profile-section */
+.profile-section p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* 2. Child Combinator: Targets the direct <p> child of .profile-section */
+.profile-section > p {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-left: 4px solid #007bff;
+}
+
+/* 3. Adjacent Sibling Combinator: Makes the second and third <li> less prominent */
+li + li {
+    color: #777; 
+    font-size: 18px;  
+}
