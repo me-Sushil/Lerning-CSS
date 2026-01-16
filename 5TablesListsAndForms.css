@@ -482,3 +482,580 @@ This example shows how CSS can make your tables look modern and engaging.
 
 Now that you have a solid foundation for creating attractive tables, you can create virtually
  any design you can imagine.
+
+
+
+
+
+
+
+
+
+
+LISTS 
+
+
+
+Introduction
+Lists help organize information in a sequential manner.
+
+With CSS, you can style these lists to match the design of your webpage. In this lesson, 
+you'll explore various list styles and customization options.
+
+Let's look at an unstyled list:
+
+index.html
+<ul>
+    <li>Apple</li>
+    <li>Ball</li>
+    <li>Cat</li>
+</ul>
+If you run this code, a plain list will appear on the page.
+
+
+
+
+
+Removing Bullets
+First, let's start by removing the default bullets from a list. You can do this using
+ the list-style-type property.
+
+Example
+
+index.html
+style.css
+ul.no-bullets {
+    list-style-type: none;    /* Removes default bullets */
+}
+
+
+HTML List without Bullets
+The list now has no bullets, giving it a clean, bullet-free appearance.
+
+
+
+
+
+Customizing Bullet Types
+Next, let's add custom bullets to the list. For example, you can use square bullets instead.
+
+index.html
+style.css
+ul.square {
+    list-style-type: square;    /* Adds square bullets */
+}
+
+
+HTML List with Square Bullets
+
+Now, the list items have square bullets.
+
+
+
+
+
+Example: List with Circle Bullets
+You can also use other bullet styles like circle or disc.
+
+Here's how you can do that:
+
+index.html
+style.css
+ul.circle {
+    list-style-type: circle;    /* Adds circle bullets */
+}
+
+
+HTML List with Circle Bullets
+Now, the list items have circle bullets.
+
+Replace the circle with a disc in the above code. The list will then have disc bullets.
+
+
+
+
+
+
+
+
+Bullet Styling
+Let's take a look at all possible values of the list-style-type property.
+
+index.html
+style.css
+ul.no-bullets {
+    list-style-type: none; /* Removes default bullets */
+}
+
+ul.square {
+    list-style-type: square; /* Adds square bullets */
+}
+
+ul.circle {
+    list-style-type: circle; /* Adds circle bullets */
+}
+
+ul.disc {
+    list-style-type: disc; /* Adds disc bullets */
+}
+The list now has customized bullets, allowing for different visual styles.
+
+
+
+HTML List with Mixed Bullets
+
+Now that you know how to style your lists, let's explore how you can control the position of 
+the bullets or numbers with the list-style-position property.
+
+
+
+
+
+
+List Style Position
+The list-style-position property controls whether the marker (bullet) is placed inside or outside 
+the content flow of the list item.
+
+For example:
+
+index.html
+style.css
+ul.inside {
+    list-style-position: inside;
+}
+Looking at the output, you can see that the bullet of the first list starts at the same position 
+as the first letter of the items of the second list.
+
+
+
+
+
+
+
+Example: Stylish Lists with CSS
+CSS allows you to create visually engaging lists that can enhance the presentation of your content.
+
+index.html
+style.css
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+background-color: #f8f9fa;
+text-align: center;
+}
+
+.list-container {
+background-color: #fff;
+border-radius: 8px;
+padding: 20px;
+width: 300px;
+margin: 30px auto;
+}
+
+h2 {
+color: #333;
+margin-bottom: 20px;
+}
+
+.styled-list {
+list-style-type: none;
+padding: 0;
+margin: 0;
+}
+
+.styled-list li {
+background-color: #3498db;
+color: white;
+padding: 10px;
+margin: 10px 0;
+border-radius: 5px;
+font-size: 18px;
+text-align: left;
+}
+
+.styled-list li .icon {
+left: 10px;
+font-size: 20px;
+}
+
+.styled-list li:hover {
+background-color: #2980b9;
+}
+Browser Output
+
+List Styling CSS
+
+This example shows how to create a stylish list layout using only CSS properties for text and 
+background styling.
+
+
+
+
+
+
+
+
+Problem 
+
+Style List
+Style the given unordered HTML list as follows:
+
+Make the bullet points square-shaped.
+Set the list items' text color to #ff5733 (orange).
+Add 10px padding to the left of each list item.
+
+
+Solution
+ul {
+    list-style-type: square; /* Adds square bullets */
+}
+li {
+    color:#ff5733;
+    padding-left:10px;
+}
+
+
+
+
+
+
+
+
+link
+
+
+
+Links (Anchor Tags <a>)
+Links allow users to navigate from one page to another. You can style these links to change their 
+appearance based on how the user interacts with them.
+
+Let's look at how to change the color of a link in different states: normal, visited, hovered, 
+and active.
+
+Use pseudo-classes such as visited, hover, and active to apply CSS to different states.
+
+Example
+
+index.html
+<a href="https://programiz.pro" target="_blank">Welcome to Programiz Pro</a>
+
+
+style.css
+/* Normal state:
+ how the link looks when 
+it's not clicked */
+a {
+    color: blue;
+}
+
+/* Visited state: 
+how the link looks after the user 
+has visited it */
+a:visited {
+    color: purple;
+}
+
+/* Hover state: 
+how the link looks when the user 
+hovers their mouse over it */
+a:hover {
+    color: red;
+}
+
+/* Active state: 
+how the link looks when the 
+user clicks and holds the mouse button */
+a:active {
+    color: green;
+}
+Hit run code and try it out.
+
+The link will change colors as you interact with it:
+
+You can see the link in its default blue state.
+When you hover over it, notice how the color changes to red.
+As you click and hold the link, it turns green, indicating the active state.
+Once you visit the link and return to this page, you'll see it's purple, showing that you've 
+already visited it.
+
+
+
+
+
+
+
+
+
+Important Note about CSS Order
+The order of CSS rules for link states matters. If you place :visited last, 
+it will override any :hover or :active styles you set for links that have been
+visited, meaning :hover and :active effects won't show up on links you've clicked on before.
+
+Here's an easy rule to follow:
+
+Always write your CSS rules in this order for links: :link, :visited, :hover, :active.
+This way, :hover and :active will work correctly for all links—even after they've been clicked on.
+
+
+
+
+
+
+Example: Styling a Navigation Bar (Navbar)
+With CSS, you can transform a simple list of links into an appealing and functional 
+navigation bar (navbar).
+
+The following example demonstrates how to use CSS to make a list of links function as 
+a navigation bar.
+
+index.html
+<nav class="navbar">
+    <div class="nav-left">
+        <a href="#">Jane</a>
+    </div>
+    <ul class="nav-right">
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+style.css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    background-color: #2c2c52;
+    padding: 0 20px;
+    height: 50px;
+    line-height: 50px;
+}
+
+.nav-left {
+    float: left;
+}
+
+.nav-left a {
+    color: #fff;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+/* Right-aligned list */
+.nav-right {
+    float: right;
+    list-style: none;
+}
+
+.nav-right li {
+    display: inline;
+    margin-left: 20px;
+}
+
+.nav-right a {
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+a:hover{
+ color: #c0c0c0;
+}
+
+
+Navbar Styling CSS
+You can enhance the navbar further with additional styles or responsive design techniques 
+to fit various devices and screen sizes.
+
+
+
+
+
+
+
+
+
+
+FORMS
+
+Introduction
+In this lesson, you'll use CSS to build a styled contact form one step at a time.
+
+By the end, you'll have a fully functional and well-designed contact form for your portfolio.
+
+Let's get started.
+
+
+
+Adding HTML
+Let's start by writing the basic HTML structure for the contact form. This will include 
+input fields such as text, email, dropdowns, and a submit button.
+
+Additionally, we'll add a browser reset to remove any default styling and provide a clean 
+foundation for custom CSS.
+
+index.html
+<form class="contact-form">
+    <h2>Contact Us</h2>
+
+    <div class="form-group">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" placeholder="Your Full Name" required>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+    </div>
+
+    <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" placeholder="Subject of your message" required>
+    </div>
+
+    <div class="form-group">
+        <label for="reason">Reason for Contact</label>
+        <select id="reason" name="reason" required>
+            <option value="" disabled selected>Select a reason</option>
+            <option value="networking">Networking</option>
+            <option value="freelance">Freelance</option>
+            <option value="support">Support</option>
+            <option value="feedback">Feedback</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Your message..." rows="5" required></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">Send Message</button>
+</form>
+
+style.css
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+
+Styling the Form
+Now that we have the HTML, we can begin styling the form. The wrapper ensures the form is 
+visually separated from other elements on the page, giving it a distinct look.
+
+We'll start by giving the form a background color, some padding, and centered text.
+
+index.html
+style.css
+/* Form background styling */
+.contact-form {
+    background-color: #ccc;
+    padding: 40px;
+    text-align: center;
+}
+
+.contact-form h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+}
+
+
+
+Styling Form Groups
+Next, we'll style the individual form groups. Each group contains a label and an input
+ field (or select/textarea).
+
+By adding space between the elements and aligning the text correctly, we can ensure that the
+ form is easy to read and visually appealing.
+
+index.html
+style.css
+/* Form group styling */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+    color: #333;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    background-color: #fafafa;
+    color: #333;
+}
+
+
+
+
+Styling the Submit Button
+Finally, we'll style the submit button. The button should be clearly visible and inviting 
+for users to click.
+
+We'll use a distinct background color (#3498db) and add a hover effect to make the button
+ interactive and provide visual feedback when hovered over.
+
+index.html
+style.css
+/* Button styling */
+.submit-btn {
+    background-color: #3498db;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background-color: #2980b9;
+}
+
+
+
+
+
+
+
+
+
+Review
+In this chapter:
+
+You learned how to style tables using CSS by adding borders, padding, aligning text, and 
+adding captions.
+You explored different ways to customize lists by changing or removing bullet types.
+You styled links to change colors based on user interaction.
+You styled different form elements individually.
+In the next chapter, you'll dive into advanced CSS techniques. You'll learn about flexbox, 
+which will allow you to create complex and responsive designs.
