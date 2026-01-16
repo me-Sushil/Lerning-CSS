@@ -221,6 +221,16 @@ Take a look at the navigation bar on the Programiz Pro homepage. It always remai
 Let's create a similar fixed navbar:
 
 index.html
+<div class="navbar">
+    <div id="logo">Programiz</div>
+</div>
+
+<div class="content">
+    <p>Scroll down to see the navbar stay fixed at the top of the page.</p>
+    <p>More content here...</p>
+    <p>Keep scrolling...</p>
+</div>
+
 style.css
 * {
     margin: 0;
@@ -248,3 +258,95 @@ and try to spot this issue.
 Did you see it? The first two paragraphs in content aren't visible anymore.
 
 Let's learn how to fix this.
+
+
+
+Position: Fixed
+Setting the navbar to fixed removes it from the document flow and renders it on top. This hide 
+the paragraphs below.
+
+To fix this issue, we can add a margin-top to the content class that is equal to the height of
+ the navbar:
+
+index.html
+<div class="navbar">
+    <div id="logo">Programiz</div>
+</div>
+
+<div class="content">
+    <p>Scroll down to see the navbar stay fixed at the top of the page.</p>
+    <p>More content here...</p>
+    <p>Keep scrolling...</p>
+</div>
+
+style.css
+* {
+    margin: 0;
+}
+
+.navbar {
+    width: 100%; 
+    background-color: #eee;
+    padding: 20px; 
+
+    position: fixed; 
+    top: 0px;
+}
+
+.content {
+    height: 200vh;
+
+    /* Adding margin to compensate for navbar's height */
+    margin-top: 70px;
+}
+Adding a margin value now makes the content below visible.
+
+
+
+
+
+
+
+
+Position: Sticky
+Applying position: fixed on an element removes it from the document flow and requires compensating
+ for it using margin-top.
+
+With the fourth positioning value, position: sticky, this issue is handled automatically.
+
+With sticky, the element behaves like a regular element in the document flow. When scrolled past,
+it becomes "stuck" to a specified position.
+
+Let's change the position in the earlier example from fixed to sticky:
+
+index.html
+<div class="navbar">
+    <div id="logo">Programiz</div>
+</div>
+
+<div class="content">
+    <p>Scroll down to see the navbar stay fixed at the top of the page.</p>
+    <p>More content here...</p>
+    <p>Keep scrolling...</p>
+</div>
+
+style.css
+* {
+    margin: 0;
+}
+
+.navbar {
+    width: 100%; 
+    background-color: #eee;
+    padding: 20px; 
+
+    position: sticky; 
+    top: 0px;
+}
+
+.content {
+    height: 200vh;
+}
+Try scrolling down this page.
+
+The navbar now takes its original space in the document flow and solves the earlier issue.
