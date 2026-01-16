@@ -1,0 +1,484 @@
+
+
+Pseudo-Selectors
+
+
+
+
+Introduction
+In this chapter, you'll learn how to apply CSS to HTML elements, specifically tables, lists, and
+ forms.
+
+Before styling these elements, you must be familiar with their structure in HTML. If you need a 
+refresher, revisit the basics of tables, lists, and forms.
+
+By the end of this chapter, you'll be able to style these elements effectively, making your
+ content visually appealing and easier to use.
+
+To do this, you need to understand an essential concept in CSS: pseudo-selectors.
+
+Let's get started.
+
+
+
+
+
+
+
+
+Pseudo-Classes
+Pseudo-classes style specific states or positions of elements. They are preceded by a :.
+
+For example, you can style a button only when it's hovered (state) using the pseudo-class :hover.
+
+index.html
+<a href="#">This is an important message.</a>
+
+style.css
+a:hover {
+    color: red;
+}
+
+
+Pseudo-Selectors
+The red color is applied only when the user hovers over the element.
+
+
+
+
+
+Commonly Used Pseudo-Classes
+Let's look at some commonly used pseudo-classes:
+
+Pseudo-Class	Description
+:hover	        Styles an element when a user hovers over it.
+:first-child	Styles the first child element of a parent.
+:nth-child(n)	Styles the nth child element of a parent.
+
+
+
+
+
+
+Example: The :first-child Pseudo-Class
+The first-child pseudo-class selector styles the first child of its parent element. For example:
+
+index.html
+<div>
+    <p>First paragraph.</p>
+    <p>Second paragraph.</p>
+</div>
+
+style.css
+div p:first-child {
+    color: red;
+}
+
+
+first-child Pseudo-class Selector
+The above code colors only the first paragraph element (the first child of the <div> element) to red.
+
+
+
+
+
+
+Example: The :nth-child Pseudo-Class
+The :nth-child pseudo-class selector styles a specific child of its parent element based on its 
+position.
+
+For example:
+
+index.html
+<div>
+    <p>First paragraph.</p>
+    <p>Second paragraph.</p>
+    <p>Third paragraph.</p>
+</div>
+
+style.css
+div p:nth-child(2) {
+    color: blue;
+}
+
+
+:nth-child Pseudo-class Selector
+Here, the div p:nth-child(2) selector:
+
+Targets the second <p> element inside the <div> (since it's the second child of the <div> element).
+Changes the color of the selected <p> element to blue.
+
+
+
+
+
+
+
+
+
+
+
+Advanced Use of :nth-child Pseudo-Class Selector
+The :nth-child selector can do more than just target a specific child. It can also handle patterns
+ like odd and even.
+
+You can use :nth-child(odd) to target all odd-numbered elements and :nth-child(even) to target all
+ even-numbered elements.
+
+Example
+
+index.html
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+</ul>
+
+style.css
+ul li:nth-child(odd) {
+    background-color: lightgray;
+}
+
+ul li:nth-child(even) {
+    background-color: gray;
+}
+
+
+Alternating list items styled with nth-child
+In this example,
+
+ul li:nth-child(odd) applies a light gray background to all odd-numbered items
+ul li:nth-child(even) applies a gray background to all even-numbered list items.
+
+
+
+
+
+Example: Using Formulas
+The :nth-child selector can also accept formulas, like 3n or 2n+1, to create more complex patterns.
+
+Example
+
+index.html
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+    <li>Item 5</li>
+    <li>Item 6</li>
+    <li>Item 7</li>
+    <li>Item 8</li>
+    <li>Item 9</li>
+</ul>
+
+style.css
+ul li:nth-child(3n) {
+    color: red;
+}
+
+
+nth-child Pseudo-class with Formula
+This selector will target every third item in the list, making it red. Formulas give you great
+ flexibility in how you style your content.
+
+
+
+
+
+ PROBLEM 
+ Selecting and Styling the Second Child
+Can you style the given webpage as follows?
+
+Set the background color of the second <div> element to #8e44ad using the :nth-child pseudo-class.
+
+
+SOLUTION
+div:nth-child(2) {
+    background-color:#8e44ad;
+}
+
+
+
+
+
+
+Pseudo-Element Selectors
+Pseudo-elements let you style certain portions of text or add content before or after an 
+element without modifying the HTML.
+
+They are preceded by double colons (::).
+
+Example
+
+index.html
+<p>This is an important message.</p>
+
+style.css
+/* Add content before a paragraph */
+p::before {
+    content: "Note: ";
+    font-weight: bold;
+    color: red;
+}
+
+/* Style the first letter of a paragraph */
+p::first-letter {
+    font-size: 2em;
+    color: blue;
+}
+
+
+Pseudo-Element Selectors
+Here, the text "Note: " is added before the paragraph, and the first letter of the paragraph 
+is styled separately.
+
+
+
+
+
+
+
+Tables
+
+
+Introduction
+Tables are a great way to organize and present data in a structured format. Let's look at an example:
+
+index.html
+<table>
+    <caption>Table Caption</caption>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Country</th>
+    </tr>
+    <tr>
+        <td>Harry Depp</td>
+        <td>28</td>
+        <td>Britain</td>
+    </tr>
+    <tr>
+        <td>John Smith</td>
+        <td>35</td>
+        <td>USA</td>
+    </tr>
+    <tr>
+        <td>Ram Krishna</td>
+        <td>19</td>
+        <td>Nepal</td>
+    </tr>
+</table>
+Try running this code. The table appears, but it looks plain and unstructured.
+
+HTML Table
+Let's add some CSS properties to make it look better.
+
+
+
+
+
+Table Borders
+First, let's add a border to the table to give it a more defined structure.
+
+You can use the border property for this task. For example:
+
+index.html
+<table>
+    <caption>Table Caption</caption>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Country</th>
+    </tr>
+    <tr>
+        <td>Harry Depp</td>
+        <td>28</td>
+        <td>Britain</td>
+    </tr>
+    <tr>
+        <td>John Smith</td>
+        <td>35</td>
+        <td>USA</td>
+    </tr>
+    <tr>
+        <td>Ram Krishna</td>
+        <td>19</td>
+        <td>Nepal</td>
+    </tr>
+</table>
+
+style.css
+table {
+    border: 1px solid black;
+}
+
+
+HTML Table with Border
+Now, the table has a black border, making it more structured. But you'll notice the rows
+ and columns inside the table still lack borders.
+
+
+
+
+ Adding Borders to Rows and Columns
+To add borders to both the rows and columns, you need to apply the border to the table header 
+(th) and table data (td) cells.
+
+index.html
+style.css
+table, th, td {
+    border: 1px solid black;
+}
+Now, the table has black borders around the cells, making the structure more defined.
+
+HTML Table with Border and Cell Border
+Figure: Adding Borders to Rows and Columns
+However, the content looks cramped. Next, you'll remove this double border in the table to make 
+the content less cramped and more readable.
+
+
+
+
+
+Border Collapse
+If you look closely, you can see a gap between the table borders in the previous example.
+
+You can remove this gap by collapsing the borders using the border-collapse property.
+
+Example
+
+index.html
+style.css
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse; /* Collapses table borders */
+}
+Now the table looks much smoother.
+
+HTML Table with Collapsed Border
+Now, let's center the text inside each table cell both horizontally and vertically.
+
+
+
+
+
+
+
+
+
+Table Alignment
+Alignment is crucial for creating a reader-friendly table. Use the following properties to 
+handle the alignment of the text inside your table:
+
+text-align - Determines the horizontal alignment.
+vertical-align - Determines the vertical alignment.
+Example
+
+index.html
+style.css
+table, th, td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center; /* Centers text horizontally */
+    vertical-align: middle; /* Centers text vertically */
+    border-collapse: collapse; 
+}
+The texts inside the table cells are now aligned to the center—horizontally and vertically. 
+The addition of 10px padding also enhances the neatness of the cells.
+
+HTML Table with Center Alignment
+However, you might not always want to align table content to the center. Don't worry; CSS has 
+other alignment values as well.
+
+Let's explore them next.
+
+
+
+
+
+
+Table Alignment Values
+The image below shows the different values you can use to align the content of your cells, 
+along with how those values will place the text within the cell:
+
+HTML Table Alignments
+Figure: Some of the Possible Table Alignments
+The first table shows examples of different text-align values applied to table cells (left, 
+right, center, justify).
+
+Similarly, the second table shows examples of different vertical-align values (top, middle, 
+bottom, baseline).
+
+
+
+
+
+
+Example: HTML Table Styling
+We will create a table style with a modern touch that has striped rows and hover effects.
+
+With just a few lines of CSS, you can transform a plain HTML table into something visually 
+appealing and interactive.
+
+index.html
+<table class="striped-hover-table">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+         <th>Occupation</th>
+    </tr>
+    
+    <tr>
+        <td>John Doe</td>
+        <td>30</td>
+        <td>Software Engineer</td>
+    </tr>
+    
+    <tr>
+        <td>Jane Smith</td>
+        <td>25</td>
+        <td>Graphic Designer</td>
+    </tr>
+
+    <tr>
+        <td>Sam Wilson</td>
+        <td>35</td>
+        <td>Project Manager</td>
+    </tr>
+</table>
+
+style.css
+.striped-hover-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Arial', sans-serif;
+}
+
+.striped-hover-table th, .striped-hover-table td {
+    padding: 12px;
+    text-align: left;
+}
+
+.striped-hover-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.striped-hover-table tr:hover {
+    background-color: #e9e9e9;
+    cursor: pointer;
+}
+
+.striped-hover-table th {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+}
+
+
+HTML Table Styling
+This example shows how CSS can make your tables look modern and engaging.
+
+Now that you have a solid foundation for creating attractive tables, you can create virtually
+ any design you can imagine.
