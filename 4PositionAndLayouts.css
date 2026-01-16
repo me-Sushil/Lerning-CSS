@@ -350,3 +350,58 @@ style.css
 Try scrolling down this page.
 
 The navbar now takes its original space in the document flow and solves the earlier issue.
+
+
+
+
+
+
+
+Position: Sticky
+There's another neat thing you can do with position sticky—you can make an element stick 
+only as long as its parent is in view.
+
+Example
+
+index.html
+<body>
+    <div class="main">
+        <div class="sidebar">Sidebar</div>
+    </div>
+</body>
+
+style.css
+body {
+    margin: 0;
+    height: 200vh;
+}
+
+.main {
+    background-color: #eee; 
+    height: 100vh;
+    padding: 10px;
+}
+
+.sidebar {
+    background: black; 
+    color: white;
+    width: 70px;
+    height: 150px;
+    padding: 20px;
+  
+    position: sticky;
+    top: 0; 
+}
+The sidebar element sticks to the top only as long as its parent (the main section) lasts. 
+As soon as the main section ends, the sidebar doesn't stick anymore.
+
+Takeaway: With position: sticky, the sidebar stays stuck as long as its parent element is in view. 
+Once the parent scrolls out of view, the sidebar stops sticking.
+
+
+
+
+
+
+
+
