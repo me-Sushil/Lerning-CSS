@@ -515,3 +515,761 @@ Correct Answer!
 A:
 You didn't give the navigation bar a high enough z-index to stay above other elements.
 Without a high enough z-index, your fixed element can be covered by other overlapping content.
+
+
+
+
+
+
+
+
+Float and Clear
+
+
+
+Introduction
+The float property allows you to push an element to the left or right and lets the rest of the 
+content flow around it.
+
+This technique was commonly used for creating two-column layouts, where elements are placed side
+ by side.
+
+
+Note: Float is considered an older method and has largely been replaced by more modern layout 
+systems like Flexbox and Grid, which we'll explore in upcoming chapters.
+This chapter covers the basics of float and clear, providing just enough information to understand 
+and work with legacy code. Let's start with some examples.
+
+
+
+
+
+Float Values
+The float property has two main values: left and right. These values determine where the element 
+is "floated" within its container, allowing other content to flow around it.
+
+Consider the example below:
+
+index.html
+<div class="box"></div>
+<p class="content">This is some sample text.</p>
+
+
+style.css
+.box {
+    height: 200px;
+    width: 200px;
+    border-radius: 20px;
+    background: #ddd;
+}
+
+Float Example
+Figure: Float Values
+In this example, we have a <div> with the class box and a paragraph of text.
+
+If we set float: left on the box, the element will move to the left, and the text will flow to 
+its right, occupying the remaining space.
+
+You'll see how this works next.
+
+
+
+
+
+Float Left
+Let's modify our previous code to make the box float to the left.
+
+index.html
+style.css
+.box {
+    height: 200px;
+    width: 200px;
+    border-radius: 20px;
+    background: #ddd;
+
+    float: left;
+}
+
+
+
+Float Left  Example
+Figure: Float Left
+With float: left, the box is positioned to the left, and the content wraps around it on the right.
+ The content doesn't overlap but flows neatly beside the floated element.
+
+
+
+
+Float Right
+Now, change the box class to float: right and observe the difference.
+
+index.html
+style.css
+.box {
+    height: 200px;
+    width: 200px;
+    border-radius: 20px;
+    background: #ddd;
+
+    float: right;
+}
+Run the code and observe the output.
+
+By using float: right, the box is pushed to the right, and the text flows around it on the left.
+ The content behaves similarly but adapts to the new float position.
+
+
+
+
+
+
+ Float for Two-Column Layouts
+In the past, floats were commonly used to create multi-column layouts because they allow elements
+ to sit side by side.
+
+Below is a section from the Programiz Pro website. You can build a two-column design like this 
+using floats.
+
+Float Website Example
+Figure: Float Website Example
+Let's implement a basic two-column layout using floats:
+
+index.html
+<div class="box1">Box 1</div>
+<div class="box2">Box 2</div>
+<p>Some example text that flows beneath the boxes and demonstrates the float behavior.</p>
+
+style.css
+.box1 {
+    height: 200px;
+    width: 300px;
+    border-radius: 20px;
+    background: #ddd;
+
+    float: left;
+}
+
+.box2 {
+    height: 200px;
+    width: 300px;
+    border-radius: 20px;
+    background: #aaa;
+
+    float: right;
+}
+
+
+
+Float Two-Column Example
+Figure: Float for Two-Column Layouts
+In this example, the first box (.box1) floats to the left, and the second box (.box2) floats 
+to the right.
+
+This creates a simple two-column layout, with the two boxes appearing side by side, and the text
+ below them should flow naturally underneath. However, it doesn't.
+
+Elements that follow floated content often need to be manually cleared to prevent overlapping or
+ misalignment.
+
+To fix this, you can clear the float on the element immediately after the floated elements (in 
+this case, the <p> tag). Let's see how we can achieve this.
+
+
+
+
+
+
+
+Clearfix Hack
+You can fix the floating problem using a neat hack called the clearfix hack. This approach prevents
+ layout issues caused by floats.
+
+To do this, you wrap the elements in a new <div>. Assign the class clearfix to the new <div> 
+and add the following code in CSS:
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+ 
+
+Note: While the class is commonly named "clearfix" due to the popularity of this solution, you 
+can name it anything. Just make sure the CSS rule applies to the same class you assign to the 
+container.
+index.html
+<div class="clearfix">
+    <div class="box1">Box 1</div>
+    <div class="box2">Box 2</div>
+</div>
+
+<p>Some example text that flows beneath the boxes and demonstrates the float behavior.</p>
+
+style.css
+.box1 {
+    height: 200px;
+    width: 300px;
+    border-radius: 20px;
+    background: #ddd;
+
+    float: left;
+}
+
+.box2 {
+    height: 200px;
+    width: 300px;
+    border-radius: 20px;
+    background: #aaa;
+
+    float: right;
+}
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+Clear fix Example
+Figure: Clearfix Hack
+
+Note: Don't worry if this feels a bit advanced; you don't need to understand it immediately. 
+If you're ever curious, google "CSS clearfix hack" to access resources about it.
+
+
+
+
+
+
+
+Project: Positioning and Layout
+
+
+
+
+
+Create a Navbar
+In this chapter, we learned about the position, z-index, and float properties in CSS. Let's create a navbar using our understanding of these properties.
+
+This is what our final navbar will look like:
+
+index.html
+<body>
+    <nav class="navbar">
+        <div class="logo">GreatBrand</div>
+        <div class="navbar-items">
+            <div class="navbar-item">About</div>
+            <div class="navbar-item offer">
+                Special Offers
+                <span class="offer-badge">New!</span>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <p>This is a sample navbar.</p>
+    </main>
+</body>
+
+style.css
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    height: 200vh;
+}
+
+.navbar {
+    background: #111;
+    height: 70px;
+    color: white;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+}
+
+.navbar-item {
+    display: inline-block;
+    margin: 4px 10px;
+}
+
+.logo {
+    font-size: 20px;
+    float: left;
+}
+
+.navbar-items {
+    float: right;
+}
+
+.offer {
+    position: relative;
+}
+
+.offer-badge {
+    background-color: red;
+    border-radius: 15px;
+    padding: 5px 8px;
+    font-size: 12px;
+    position: absolute;
+    top: -20px;
+    right: -25px;
+}
+Let's begin.
+
+
+
+Step 1: Basic Structure
+Let's start with HTML and some basic CSS.
+
+We'll create a simple navbar containing a logo and two navigation items, including a special
+ offers section. This is our starting point.
+
+index.html
+<body>
+    <nav class="navbar">
+        <div class="logo">GreatBrand</div>
+        <div class="navbar-items">
+            <div class="navbar-item">About</div>
+            <div class="navbar-item offer">
+                Special Offers
+                <span class="offer-badge">New!</span>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <p>This is a sample navbar.</p>
+    </main>
+</body>
+
+style.css
+/* Reset browser styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    height: 200vh;
+}
+
+
+
+Step 2: Positioning the Navbar
+Now, let's add these basic CSS to style our navbar:
+
+Set the background color and height of the navbar.
+Change the navbar's position to sticky so it stays at the top when we scroll.
+Set the color of the text.
+index.html
+style.css
+.navbar {
+    color: white;
+    background: #111111;
+    height: 70px;
+
+    /* Sticky position added */
+    position: sticky;
+    top: 0;
+}
+
+
+
+
+
+Step 3: Logo Positioning
+Next, let's focus on positioning the logo with these CSS:
+
+Change the logo's font size and float it to the left.
+Apply some padding to center the nav items.
+index.html
+style.css
+.navbar {
+    color: white;
+    background: #111111;
+    height: 70px;
+    position: sticky;
+    top: 0;
+
+    /* Padding added */
+    padding: 20px;
+}
+
+.logo {
+    font-size: 20px;
+
+    /* Logo floated left */
+    float: left;
+}
+
+
+
+
+
+Step 4: Aligning Navbar Items
+Now, we'll work on the navigation items with these steps:
+
+Float the items in the navbar-items container to the right.
+Space the items using margin.
+index.html
+style.css
+.navbar-item {
+    /* Stop line breaks between items */
+    display: inline-block;
+
+    /* Margin added */
+    margin: 4px 10px;
+}
+
+.navbar-items {
+    /* Nav items floated right */
+    float: right;
+}
+
+
+
+
+
+
+
+
+
+Step 5: Highlighting Special Offers
+Finally, let's style the "Special Offers" navigation item using relative positioning. 
+This will allow us to position the badge relative to this item, making it stand out.
+
+index.html
+style.css
+.offer {
+    /* Positioning parent */
+    position: relative;
+}
+
+.offer-badge {
+    background-color: red;
+    border-radius: 15px;
+    padding: 5px 8px;
+    font-size: 12px;
+
+    /* Positioning badge */
+    position: absolute;
+    top: -20px;
+    right: -25px;
+}
+Let's see how this navbar will look like in a full-fledged webpage.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Final Results
+And that's how you can make a navbar using CSS!
+
+Our navbar features a logo, navigation items, and a special offers badge.
+
+It stays fixed at the top of the viewport as we scroll through the page. Here's the complete code:
+
+index.html
+<body>
+    <nav class="navbar">
+        <div class="logo">GreatBrand</div>
+        <div class="navbar-items">
+            <div class="navbar-item">About</div>
+            <div class="navbar-item offer">
+                Special Offers
+                <span class="offer-badge">New!</span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Welcome to GreatBrand</h1>
+                <p>Discover amazing products and unbeatable offers</p>
+                <button class="cta-button">
+                    Get Started
+                    <span class="chevron-right">❯</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2>Our Features</h2>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <div class="emoji">🏆</div>
+                        <h3>Quality Products</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="emoji">🚚</div>
+                        <h3>Fast Delivery</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="emoji">🎧</div>
+                        <h3>24/7 Support</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <h2>What Our Customers Say</h2>
+                <div class="testimonial-list">
+                    <div class="testimonial-item">
+                        <p>👩‍🎨</p>
+                        <div>
+                            <h4>Happy Customer 1</h4>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                        <p>Amazing service! Will definitely buy again.</p>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>🙋‍♀️</p>
+                        <div>
+                            <h4>Happy Customer 2</h4>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                        <p>The quality of the products exceeded my expectations.</p>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>🙋🏻</p>
+                        <div>
+                            <h4>Happy Customer 3</h4>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                        <p>Fast delivery and great customer support.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <h3>GreatBrand</h3>
+            <p>© 2024 GreatBrand. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+
+
+style.css
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.navbar {
+    color: white;
+    background: #111111;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    padding: 20px;
+}
+
+.navbar-item {
+    display: inline-block;
+    margin: 4px 10px;
+}
+
+.logo {
+    font-size: 20px;
+    float: left;
+}
+
+.navbar-items {
+    float: right;
+}
+
+.offer {
+    position: relative;
+}
+
+.offer-badge {
+    background-color: red;
+    border-radius: 15px;
+    padding: 5px 8px;
+    font-size: 12px;
+    position: absolute;
+    top: -20px;
+    right: -25px;
+}
+
+.hero {
+    background-color: #2d3748;
+    color: white;
+    text-align: center;
+    padding: 80px 0;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background-color: #3182ce;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background-color: #2b6cb0;
+}
+
+.chevron-right {
+    margin-left: 10px;
+}
+
+.features {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.feature-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 30%;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.feature-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    color: #718096;
+}
+
+.emoji {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.testimonials {
+    background-color: #edf2f7;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.testimonial-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.testimonial-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 30%;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-item img {
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.testimonial-item h4 {
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+}
+
+.stars {
+    color: #f6ad55;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.footer {
+    background-color: #2d3748;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.footer p {
+    color: #a0aec0;
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: #a0aec0;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+In the next chapter, you'll learn about styling specific HTML elements using CSS.
