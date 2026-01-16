@@ -405,3 +405,113 @@ Once the parent scrolls out of view, the sidebar stops sticking.
 
 
 
+Z-Index
+You've learned the four main values for the position property: relative, absolute, fixed and sticky.
+ Great job!
+
+Now, you'll learn about the z-index property.
+
+The z-index property controls the stacking of positioned elements.
+
+It allows you to change whether the element is stacked in front of or behind another element on the
+ screen.
+
+Let's see an example where this can be useful.
+
+
+
+
+Example: Z-Index
+Consider the code below:
+
+index.html
+<div class="box1">Box1</div>
+<div class="box2">Box2</div>
+
+style.css
+.box1 {
+    height: 200px;
+    width: 100px;
+    background: #aaa;
+    position: absolute;
+}
+
+.box2 {
+    height: 100px;
+    width: 200px;
+    background: #ddd;
+}
+
+
+Z-index Example
+Figure: Example: Z-Index
+Here, box1 is positioned as absolute.
+
+As a result, it is removed from the document flow and rendered in front.
+
+Next, let's see how you can make box2 appear before box1 using the z-index property.
+
+
+
+
+
+
+Example: Making box2 Appear Before box1
+To make box2 appear before box1, you need to make box2 a positioned element.
+
+After that, assign a higher z-index value to box2 and a lower z-index value to box1.
+
+index.html
+style.css
+.box1 {
+    height: 200px;
+    width: 100px;
+    background: #aaa;
+    position: absolute;
+  
+    z-index: 1;
+}
+
+.box2 {
+    height: 100px;
+    width: 200px;
+    background: #ddd;
+
+    /* Making box2 a positioned element. 
+    Any position value works (except static) */
+    position: relative;
+    z-index: 2;
+}
+
+
+Z-Index Example
+Figure: Example: Making box2 Appear Before box1
+Here, we first made both box1 and box2 positioned elements. Then, we set the z-index of box1 
+to 1 and box2 to 2.
+
+Elements with lower z-index value are rendered first. Then, those with higher z-index are stacked 
+in front.
+
+So, box1 is rendered first, and box2 is stacked in front of it.
+
+Idea Emoji
+Note: z-index works only on positioned elements.
+
+
+
+
+Quiz: You set z-index: 10 on an element, but it doesn't appear on top of other overlapping elements.
+ What could be the issue?
+
+ Correct Answer!
+B:
+The element doesn't have a position value (like relative, absolute, or fixed) set in its CSS.
+The z-index only works when the element is positioned, meaning it must have a position value other than static.
+
+
+Quiz: You created a position: fixed navigation bar, but when you view it on a long scrolling page, the bar disappears under other elements. What is most likely the problem?
+
+Correct Answer!
+A:
+You didn't give the navigation bar a high enough z-index to stay above other elements.
+Without a high enough z-index, your fixed element can be covered by other overlapping content.
