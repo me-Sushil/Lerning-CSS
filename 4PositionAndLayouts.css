@@ -92,7 +92,7 @@ style.css
     top: 0px;
     right: 0px;
 }
-Browser Output
+
 
 Example: Absolute
 Figure: Position: Absolute
@@ -117,3 +117,134 @@ Paste this code section to position the badge.
 Note: In CSS, an element with position: absolute looks for a reference parent to determine
  its position on the page. A reference parent is any element that has position: relative 
  or position: absolute.
+
+
+
+
+
+
+
+
+
+
+
+ Omitting Position: Relative
+If you forget to position the parent, the browser window becomes the reference parent.
+
+index.html
+<div class="notifications">
+    <span class="icon">🔔</span>
+    <span class="badge">30</span>
+</div>
+
+style.css
+.notifications {
+    background: #ddd;
+    display: inline-block;
+    margin: 50px;
+    padding: 30px;
+    font-size: 36px;
+}
+
+.badge {
+    font-size: 24px;
+    line-height: 16px;
+
+    /* Sets the window as reference parent */
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+
+Window as Reference
+Figure: Omitting Position: Relative
+This positions the badge to the top right corner of the window.
+
+
+
+
+
+
+
+
+
+
+Why Shouldn't You Use Position: Relative?
+You might think this could be achieved using only position: relative too.
+
+Let's see what issue this might create:
+
+index.html
+style.css
+.notifications {
+    background: #ddd;
+    display: inline-block;
+    margin: 50px;
+    padding: 30px;
+    font-size: 36px;
+}
+
+.badge {
+    font-size: 24px;
+    line-height: 16px;
+
+    position: relative;
+    top: -60px;
+    right: -45px;
+}
+
+
+Position Relative
+Figure: Why Shouldn't You Use Position: Relative?
+When using position: relative, the element remains in its original place in the document flow. 
+It is only visually shifted by the specified amount.
+
+However, position: absolute completely removes the element from the document flow. That's why 
+the unwanted spacing, as seen in the image, doesn't exist when done so.
+
+
+Note: Relative positioning simply moves the element visually, while absolute positioning takes 
+the element out of the flow entirely, allowing other elements to occupy its original space.
+
+
+
+
+
+Position: Fixed
+The third positioning value is fixed, which makes an element stay at the same spot on the screen, 
+even when you've scrolled the page.
+
+Take a look at the navigation bar on the Programiz Pro homepage. It always remains fixed at the top,
+ no matter how far down the page is scrolled.
+
+Let's create a similar fixed navbar:
+
+index.html
+style.css
+* {
+    margin: 0;
+}
+
+.navbar {
+    width: 100%; 
+    background-color: #eee;
+    padding: 20px; 
+
+    /* Makes the navbar fixed at 0px from top */
+    position: fixed; 
+    top: 0px;
+}
+
+.content {
+    /* Sets the height to twice the browser's height */
+    height: 200vh;
+}
+Try scrolling down and notice the position of the navbar. It remains fixed.
+
+But, positioning an element as fixed causes an issue. Compare the HTML code to our output, 
+and try to spot this issue.
+
+Did you see it? The first two paragraphs in content aren't visible anymore.
+
+Let's learn how to fix this.
