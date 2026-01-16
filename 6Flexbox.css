@@ -1,0 +1,323 @@
+
+Flexbox Basics
+
+
+
+
+
+
+
+Introduction
+In Chapter 5, we explored the limitations of using floats for layout. While floats allow 
+making basic layouts, they cause two major issues:
+
+Misalignment of elements
+Inconsistent spacing
+This is where flexbox comes in—it solves these issues by providing a more efficient way
+ to arrange and align the items inside it.
+
+By the end of this chapter, you'll be able to build layouts similar to these using flexbox:
+
+Flexbox Mini Project
+
+Let's begin.
+
+
+
+
+
+
+
+Example: Flexbox
+You can make any element a flexbox by applying display: flex; to it.
+
+Example
+
+index.html
+<div class="container">
+    <div class="box box1">First Item</div>
+    <div class="box box2">Second Item</div>
+    <div class="box box3">Third Item</div>
+</div>
+
+style.css
+.container {
+    display: flex;
+}
+
+.box {
+    height: 200px;
+    width: 200px;
+    color: white; 
+    font-size: 20px;
+    text-align: center;
+    line-height: 200px;
+}
+
+.box1 {
+    background-color: #b3b3b3;
+}
+
+.box2 {
+    background-color: #808080;
+}
+
+.box3 {
+    background-color: #4d4d4d; 
+}
+In this example, you won't notice much visual change yet. The real power of flexbox will 
+now become clear as you start using its flex properties.
+
+
+
+
+
+
+Quiz: When you apply display: flex; to a container, how does it affect its child elements?
+
+Correct Answer!
+
+B: The child elements are transformed into flex items, which can now be aligned and justified within
+ the container.
+
+Applying display: flex; makes the child elements flex items, which can then be manipulated with 
+flexbox properties for alignment and distribution.
+
+
+
+
+
+
+Flexbox Properties
+
+
+
+Introduction
+In the previous lesson, we explored how to make an element a flexbox.
+
+Now, it's time to learn how to arrange those items using key flexbox properties:
+
+gap
+flex-direction
+justify-content
+align-items
+These properties allow flexbox to create flexible and responsive layouts.
+
+Let's dive in, starting with the gap property.
+
+
+
+
+
+
+
+
+The gap Property
+You can add space between all flex items at once using the gap property, which removes the need for individual margins.
+
+Example
+
+index.html
+<div class="container">
+    <div class="box box1">First Item</div>
+    <div class="box box2">Second Item</div>
+    <div class="box box3">Third Item</div>
+</div>
+
+
+style.css
+.container {
+    display: flex;
+    gap: 10px;
+}
+
+.box {
+    height: 200px;
+    width: 200px;
+    color: white; 
+    font-size: 20px;
+    text-align: center;
+    line-height: 200px;
+}
+
+.box1 {
+    background-color: #b3b3b3;
+}
+
+.box2 {
+    background-color: #808080;
+}
+
+.box3 {
+    background-color: #4d4d4d; 
+}
+
+
+
+
+
+
+The flex-direction Property
+By default, items in a flexbox are arranged horizontally in a row, i.e., flex-direction: row.
+
+index.html
+<div class="container">
+    <div class="box box1">First Item</div>
+    <div class="box box2">Second Item</div>
+    <div class="box box3">Third Item</div>
+</div>
+
+style.css
+.container {
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+}
+
+.box {
+    height: 200px;
+    width: 200px;
+    color: white; 
+    font-size: 20px;
+    text-align: center;
+    line-height: 200px;
+}
+
+.box1 {
+    background-color: #b3b3b3;
+}
+
+.box2 {
+    background-color: #808080;
+}
+
+.box3 {
+    background-color: #4d4d4d; 
+}
+
+Flex Row
+As you can see, we get the same result as the previous program because flex-direction: row 
+is the default value which doesn't need to be specified.
+
+
+
+
+
+
+
+
+
+
+
+Flex-Direction: Column
+You can arrange the items vertically using flex-direction: column.
+
+Example
+
+index.html
+<div class="container">
+    <div class="box box1">First Item</div>
+    <div class="box box2">Second Item</div>
+    <div class="box box3">Third Item</div>
+</div>
+
+
+style.css
+.container {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.box {
+    height: 200px;
+    width: 200px;
+    color: white; 
+    font-size: 20px;
+    text-align: center;
+    line-height: 200px;
+}
+
+.box1 {
+    background-color: #b3b3b3;
+}
+
+.box2 {
+    background-color: #808080;
+}
+
+.box3 {
+    background-color: #4d4d4d; 
+}
+
+Flex Column
+
+Note: You can also gain extra control using the values row-reverse and column-reverse to 
+reverse the item order—horizontally (right to left) or vertically (bottom to top).
+
+
+
+
+
+
+
+
+
+Main Axis
+In flexbox, flex-direction sets the direction of the main axis. Its perpendicular is called the
+ cross axis.
+
+1. Row Arrangement
+
+When set to row, the main axis is horizontal, arranging items from left to right.
+
+
+2. Column Arrangement
+
+When set to column, the main axis becomes vertical, arranging items from top to bottom.
+
+
+
+
+
+
+
+
+
+
+The justify-content Property
+Earlier, you learned to add spacing between flex items using the gap property.
+
+While gap adds fixed spacing between items, justify-content distributes space dynamically based 
+on item alignment.
+
+The list below summarizes all values for justify-content:
+
+flex-start: Aligns items at the start of the main axis (default).
+The justify-content Property
+Figure: flex-start
+
+
+flex-end: Aligns items at the end of the main axis.
+The justify-content Property
+Figure: flex-end
+
+
+center: Centers items along the main axis.
+The justify-content Property
+Figure: center
+
+
+space-between: Distributes items evenly, with the first item at the start and the last at the end.
+The justify-content Property
+Figure: space-between
+
+
+space-around: Distributes equal space between items, and half of this space at the edges.
+The justify-content Property
+Figure: space-around
+
+
+space-evenly: Distributes items evenly, with equal space around each item, including the outer edges.
+The justify-content Property
+Figure: space-evenly
