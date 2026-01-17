@@ -838,3 +838,202 @@ Now, you'll use your flexbox skills to make the card gallery shown below:
 
 Mini Project
 Figure: Project: Card Gallery
+
+
+
+
+
+
+Step 1: Arrange Card Items Vertically
+Each card has items arranged vertically and separated by an equal gap. You can achieve this using 
+flexbox.
+
+Step 1: Arrange Card Items Vertically 
+Figure: Step 1: Arrange Card Items Vertically
+To do this, we can make the card a flexbox so that flex items can be:
+
+Arranged vertically using flex-direction: column;.
+Separated using gap: 28px;.
+Centered using align-items: center;.
+Source Code
+
+index.html
+<body>
+
+    <div class="card-row">
+        <div class="card">
+            <img src="/images/learn-css/flexbox.png" alt="Understanding Flexbox in CSS" />
+            <h3>Understanding Flexbox in CSS</h3>
+            <p>freeCodeCamp</p>
+            <button>Read</button>
+        </div>
+    </div>
+
+</body>
+
+style.css
+* {
+    /* Remove default margins */
+    margin: 0;
+}
+
+body {
+    background-color: #C6B6D7;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Blog Card */
+.card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 40px;
+    width: 300px;
+
+    /* Makes the card a flexbox */
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    align-items: center;
+}
+
+/* Blog Card Image */
+.card img {
+    width: 192px;
+    height: 192px;
+    object-fit: cover;
+}
+
+.card button {
+    padding: 8px 30px;
+    background-color: #0556F3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+Step 2: Arrange Cards Horizontally
+In the same way, multiple cards are arranged horizontally using flexbox.
+
+Step 2: Arrange Cards Horizontally
+Figure: Step 2: Arrange Cards Horizontally
+To do this, make cards a flexbox so that flex items of the class card can be:
+
+Arranged vertically using flex-direction: column;.
+Separated using gap: 24px;.
+Centered using justify-content: center;.
+Source Code
+
+index.html
+<body>
+
+    <h2> Blogs </h2>
+    <div class="card-row">
+        <div class="card">
+            <img src="/images/learn-css/flexbox.png" alt="Understanding Flexbox in CSS" />
+            <h3>Understand Flexbox in CSS</h3>
+            <p>freeCodeCamp</p>
+            <button>Read</button>
+        </div>
+        <div class="card">
+            <img src="/images/learn-css/responsive-design.png" alt="Mastering Responsive Design" />
+            <h3>Mastering Responsive Design</h3>
+            <p>Medium</p>
+            <button>Read</button>
+        </div>
+        <div class="card">
+            <img src="/images/learn-css/advanced-grid.png" alt="Advanced CSS Grid Techniques" />
+            <h3>Advanced CSS Grid Techniques</h3>
+            <p>Programiz Blogs</p>
+            <button>Read</button>
+        </div>
+    </div>
+
+</body>
+
+style.css
+* {
+    /* Remove default margins */
+    margin: 0;
+}
+
+body {
+    background-color: #C6B6D7;
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    padding: 40px;
+}
+
+/* Card Container */
+.card-row {
+    /* Arranges multiple cards horizontally */
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+
+/* Blog Card */
+.card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 40px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    align-items: center;
+}
+
+
+/* Blog Card Image */
+.card img {
+    width: 192px;
+    height: 192px;
+    object-fit: cover;
+}
+
+
+.card button {
+    padding: 8px 30px;
+    background-color: #0556F3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+With these changes, your mini-project is now complete.
+
+Try changing the flex properties here to see how they affect the layout. You can also try
+ adding more cards or card items or changing the container's dimensions.
+
+
+
+
+
+
+
+
+ Limitations of Flexbox
+Congrats! You're now proficient with flexboxes.
+
+As you can see, flexbox is perfect for one-dimensional layouts, such as displaying an 
+application's components.
+
+However, it loses its flexibility when working with larger, two-dimensional layouts.
+
+In such scenarios, grids can come in handy. You'll learn about grids in the next chapter.
