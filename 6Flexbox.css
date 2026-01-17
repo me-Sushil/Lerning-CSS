@@ -482,3 +482,359 @@ Figure: baseline
 stretch: Stretches items to fill the container along the cross axis (default).
 The align-items Property
 Figure: stretch
+
+
+
+
+
+
+
+
+
+Example: align-items
+Let's see how each value for align-items affects the vertical alignment of flex items along the cross axis.
+
+index.html
+<div class="container">
+    <div class="box box1">First Item</div>
+    <div class="box box2">Second Item</div>
+    <div class="box box3">Third Item</div>
+</div>
+
+style.css
+.container {
+    display: flex;
+    border: 1px solid black;
+    height: 350px;
+
+    /* Uncomment one of the following to test different align-items values */
+
+    /*     align-items: stretch;      */
+    /*     align-items: flex-start;   */
+    /*     align-items: flex-end;     */
+    /*     align-items: center;       */
+    /*     align-items: baseline;     */
+}
+
+.box {
+    width: 100px;
+    color: white; 
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px; 
+    padding: 10px;
+}
+
+.box1 {
+    background-color: #b3b3b3;
+}
+
+.box2 {
+    background-color: #808080;
+}
+
+.box3 {
+    background-color: #4d4d4d; 
+}
+To test different values, uncomment one of the align-items values in the CSS.
+
+
+Note: The align-items: baseline; value aligns items along the baseline of the text. 
+Try adding content of different lengths to the boxes to see it in action.
+
+
+
+
+
+
+
+
+
+
+PROBLEM
+
+Flexbox Basics
+Can you style the given webpage as follows?
+
+Create a flex layout to align items in a row.
+Set the background color of each box to #4caf50.
+Ensure all boxes are equal in width and fill the entire width of the container.
+Add a 20px gap between each box.
+Center the boxes horizontally within the container.
+
+
+SOLUTION
+<div class="container">
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <div class="box">Box 3</div>
+</div>
+
+
+.container {
+    display : flex;
+    align-items: center;
+    gap:20px;
+}
+.box {
+    background-color:#4caf50;
+    width:100%;
+    text-align:center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How to Center an Element?
+Centering elements in CSS constantly stir up frustration in the community. Now that you've learned how flexboxes work, this should be easy to do.
+
+Try centering the item class in the container below.
+
+index.html
+<h1>Container with Flex Items</h1>
+<h2> Center the items inside the container </h2>
+<div id="container">
+    <div class="item bluebox">First item </div>
+    <div class="item yellowbox">Second item </div>
+    <div class="item redbox">Third item </div>
+</div>
+
+style.css
+#container {
+    padding: 10px;
+    height: 200px;
+    background: #deddd9;
+    display: flex;
+}
+
+.item {
+    color: white;
+    padding: 10px;
+    height: 100px;
+    border-radius: 15px;
+}
+
+
+.bluebox {
+    background: #fa991c;
+}
+
+.yellowbox {
+    background: #1c768f;
+}
+
+.redbox {
+    background: #fa234a;
+}
+
+
+Center a div
+Figure: How to Center an Element?
+Hint 1: To do this, you'll center the items both vertically and horizontally within their parent container.
+
+Hint 2: Here's a quick reminder:
+
+justify-content can center items along the flex-direction.
+align-items can center items along its perpendicular.
+index.html
+<h1>Container with Flex Items</h1>
+<h2> Center the items inside the container </h2>
+<div id="container">
+    <div class="item bluebox"> First item </div>
+    <div class="item yellowbox">Second item </div>
+    <div class="item redbox">Third item </div>
+</div>
+
+style.css
+#container {
+    padding: 10px;
+    height: 200px;
+    background: #deddd9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item {
+    color: white;
+    padding: 10px;
+    height: 100px;
+    border-radius: 15px;
+}
+
+
+.bluebox {
+    background: #fa991c;
+}
+
+.yellowbox {
+    background: #1c768f;
+}
+
+.redbox {
+    background: #fa234a;
+}
+
+
+Center a div
+In this example:
+
+display: flex turns the parent container into a flexbox.
+justify-content: center horizontally centers item.
+align-items: center vertically centers item.
+That's it! This is how you can center a <div> in flexbox.
+
+Flexbox makes centering easy, and this technique works in almost any situation.
+
+
+
+
+
+
+
+PROBLEM
+Column Flexbox
+Can you style the given webpage as follows?
+
+Create a flex layout with items aligned in a column.
+Add a 10px gap between the items.
+Set the padding of each item to 10px.
+Set the background color of each item to #f9f9f9 and surround them with a border of 1px solid #ccc.
+Center each item horizontally within the container.
+
+
+SOLUTION
+
+.container {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    gap:10px;
+    
+}
+.item {
+    padding:10px;
+    background-color:#f9f9f9;
+    border: 1px solid #ccc;
+    
+}
+
+
+
+
+
+
+
+
+
+
+Inline Flex
+
+
+
+
+
+
+The inline-flex Property
+Previously, you saw that display: flex; makes the flexbox take up the entire screen width.
+
+Using the inline-flex property, you can make the flexbox take up only as much width as its 
+content requires rather than stretching across the entire width.
+
+Example
+
+index.html
+<h1>Container with Flex Items</h1>
+<h2> Inline Flex </h2>
+<div id="container">
+    <div class="item bluebox"> First item </div>
+    <div class="item yellowbox">Second item </div>
+    <div class="item redbox">Third item </div>
+</div>
+
+style.css
+#container {
+    padding: 10px;
+    height: 200px;
+    background: #deddd9;
+    display: inline-flex;
+}
+
+.item {
+    color: white;
+    padding: 10px;
+    height: 100px;
+    border-radius: 15px;
+}
+
+.bluebox {
+    background: #fa991c;
+}
+
+.yellowbox {
+    background: #1c768f;
+}
+
+.redbox {
+    background: #fa234a;
+}
+
+
+
+
+
+
+
+Quiz: By default, how wide is a flexbox?
+Correct Answer!
+
+C: The entire width of the browser screen.
+
+By default, flexboxes span the entire width of the browser screen.
+
+
+
+
+
+
+
+
+
+
+Why Use Inline Flex?
+The inline-flex property is helpful when you want to arrange multiple flex containers on the same 
+line without taking up full width. Here are a few common ways it's used:
+
+Icons with Text: If you want to add an icon next to a text, like "Search 🔍," inline-flex keeps
+ them together in one tidy line.
+Button Groups: Sometimes you'll have a group of buttons—like "Save," "Cancel," and "Edit"—that
+ look better lined up together. inline-flex helps them stay close and aligned.
+Navigation Menus: For menus that go across the top of a webpage, inline-flex works great to 
+keep each menu item (like "Home," "About," and "Contact") in a row.
+Info Cards: If you're showing small pieces of info, like profiles or product details, inline-flex
+ lets you line them up without extra space between each card. This gives a neat, compact look.
+
+
+
+
+
+
+
+
+ Project: Card Gallery
+Now, you'll use your flexbox skills to make the card gallery shown below:
+
+Mini Project
+Figure: Project: Card Gallery
