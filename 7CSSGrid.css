@@ -1,0 +1,20 @@
+CSS GRID
+
+
+
+
+
+Flexbox's Limitation
+In the previous chapter, you learned that flexbox is a one-dimensional layout system that allows
+ arranging items in either rows or columns.
+
+But suppose you want to create a layout that looks like this:
+
+Flexbox's Limitation
+Figure: Flexbox's Limitation
+To create the above layout using flexbox, you would need to use three separate wrappers 
+(each indicated by dark borders) like this:
+
+Flexbox's Limitation
+Figure: Flexbox's Limitation
+Thankfully, you can use grids to create the same layout with a single container.
